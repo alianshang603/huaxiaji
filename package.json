@@ -1,0 +1,23 @@
+{
+  "name": "huaxiaji",
+  "version": "1.0.0",
+  "description": "华夏纪 · 中国历代王朝通史（拆包/懒加载/字体自托管/SSG 预渲染版）",
+  "type": "module",
+  "scripts": {
+    "extract": "node scripts/extract-data.mjs",
+    "font": "node scripts/subset-font.mjs",
+    "build": "node scripts/build.mjs",
+    "serve": "node scripts/serve.mjs dist",
+    "preview": "npm run build && npm run serve",
+    "preview:fast": "node scripts/dev-preview.mjs",
+    "template": "node scripts/make-template.mjs"
+  },
+  "devDependencies": {
+    "@fontsource/noto-serif-sc": "^5.0.0",
+    "subset-font": "^2.3.0",
+    "playwright": "^1.44.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

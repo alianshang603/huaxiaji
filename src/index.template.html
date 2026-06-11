@@ -1,0 +1,1459 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<!--DATA_LOADER-->
+<script>/* 早执行：在首帧渲染前确定主题，消除深色闪白。无存储时跟随系统偏好。 */
+(function(){try{var t=localStorage.getItem('hxj-theme');var dk=t==='dark'||(t===null&&typeof matchMedia!=='undefined'&&matchMedia('(prefers-color-scheme:dark)').matches);if(dk)document.documentElement.classList.add('dark');}catch(e){}})();</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>华夏纪 · 中国历代王朝</title>
+<meta name="description" content="华夏纪 · 中国历代王朝——自上古三代至清的中华通史。含贯通四千年的主时间轴、28 个朝代/时期专页、跨朝专题、人物总库、朝代对照、全站搜索与都城方位图。">
+<meta name="theme-color" content="#9c2b22">
+<meta property="og:type" content="website">
+<meta property="og:title" content="华夏纪 · 中国历代王朝">
+<meta property="og:description" content="自上古三代至清的中华通史：贯通四千年的主时间轴、28 个朝代/时期专页、跨朝专题、人物总库、朝代对照与都城方位图。">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2064%2064'%3E%3Crect%20width='64'%20height='64'%20rx='12'%20fill='%239c2b22'/%3E%3Ctext%20x='32'%20y='47'%20font-size='42'%20text-anchor='middle'%20fill='%23f4ecdc'%20font-family='serif'%3E華%3C/text%3E%3C/svg%3E">
+
+
+
+<noscript></noscript>
+<style>
+:root{
+  --paper:#f4ecdc;--paper2:#efe3cd;--card:#fbf6ea;--ink:#231c19;--ink2:#6f6258;--hair:rgba(35,28,25,.13);
+  --cin:#9c2b22;--gold:#a9842f;--azure:#355f78;--accent:#9c2b22;
+  --serif:"Noto Serif SC","Songti SC","STSong","SimSun","Source Han Serif SC",serif;
+  --brush:"Noto Serif SC","Songti SC","STSong","SimSun","Source Han Serif SC",serif;
+}
+html.dark,body.dark{--paper:#1d1a16;--paper2:#16130f;--card:#262019;--ink:#ece3d4;--ink2:#a99a87;--hair:rgba(255,255,255,.11);}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--serif);color:var(--ink);line-height:1.7;min-height:100vh;position:relative;overflow-x:clip;transition:background .3s,color .3s;
+  background:radial-gradient(135% 100% at 50% -8%, color-mix(in srgb,var(--paper) 80%,#fff) 0%, var(--paper) 46%, var(--paper2) 100%);
+  background-attachment:fixed;-webkit-font-smoothing:antialiased;}
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.045;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+
+/* header */
+.hd{position:sticky;top:0;z-index:100;display:flex;align-items:center;gap:12px;padding:9px 18px;background:color-mix(in srgb,var(--paper) 82%,transparent);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--hair)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none}
+.bseal{width:34px;height:34px;background:var(--cin);border-radius:7px;display:grid;place-items:center;color:#f4ecdc;font-family:var(--brush);font-size:21px;box-shadow:0 4px 12px rgba(156,43,34,.3)}
+.bname{font-weight:700;font-size:16px;letter-spacing:.05em;color:var(--ink)}.bname small{display:block;font-size:9.5px;letter-spacing:.28em;color:var(--ink2);font-weight:400}
+.nav{margin-left:auto;display:flex;gap:1px}
+.nav a{font-size:13.5px;color:var(--ink2);text-decoration:none;padding:7px 12px;border-radius:8px;transition:all .2s;position:relative;white-space:nowrap;cursor:pointer}
+.nav a:hover{color:var(--cin);background:color-mix(in srgb,var(--cin) 8%,transparent)}
+.nav a.on{color:var(--cin);font-weight:600}.nav a.on::after{content:'';position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--cin);border-radius:2px}
+.iconbtn{background:none;border:1px solid var(--hair);border-radius:8px;width:38px;height:36px;cursor:pointer;color:var(--ink);font-size:16px;flex:none}
+.mbtn{display:none}
+
+
+.page{display:none}.page.show{display:block;animation:fade .4s ease}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,[tabindex]:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:6px}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}}
+.wrap{max-width:1140px;margin:0 auto;padding:30px 20px 60px;position:relative;z-index:1}
+.shead{display:flex;align-items:baseline;gap:13px;border-bottom:2px solid var(--hair);padding-bottom:12px;margin-bottom:20px}
+.shead .sn{font-family:var(--brush);font-size:34px;color:var(--cin);line-height:.9}
+.shead h2{font-size:23px;font-weight:700;letter-spacing:.06em}.shead p{font-size:12.5px;color:var(--ink2);margin-top:4px}
+.lead{font-size:13.5px;color:var(--ink2);line-height:1.85;max-width:820px;margin-bottom:22px}
+
+/* hub hero */
+.hero{text-align:center;padding:46px 20px 30px;position:relative;z-index:1}
+.hero .kick{font-size:12px;letter-spacing:.5em;text-indent:.5em;color:var(--cin);font-weight:600;margin-bottom:16px}
+.hero h1{font-weight:900;font-size:clamp(38px,8vw,68px);letter-spacing:.16em;text-indent:.16em;line-height:1.05}
+.hero .sub{margin-top:16px;font-size:14px;color:var(--ink2);letter-spacing:.05em;max-width:620px;margin-inline:auto;line-height:1.85}
+.hero .sub b{color:var(--cin)}
+
+/* timeline */
+.tlsec{position:relative;z-index:1;max-width:1140px;margin:0 auto;padding:6px 20px 40px}
+.tlbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.tlbar h3{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:.05em;margin-right:auto}
+.zoom{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--ink2)}
+.zoom input{width:130px;accent-color:var(--cin)}
+.zb{background:var(--card);border:1px solid var(--hair);border-radius:7px;width:30px;height:28px;cursor:pointer;color:var(--ink);font-size:15px}
+.tlhint{font-size:11px;color:var(--ink2)}
+.tlscroll{overflow-x:auto;border:1px solid var(--hair);border-radius:12px;background:var(--card);box-shadow:0 12px 30px -22px rgba(35,28,25,.5);padding:16px 0 10px}
+.tlinner{position:relative;margin:0 0 0 0}
+.tllanes{position:relative}
+.bar{position:absolute;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;padding:0 3px;color:#fff;font-size:11px;font-weight:600;cursor:pointer;overflow:hidden;white-space:nowrap;border:1px solid rgba(255,255,255,.28);text-shadow:0 1px 2px rgba(0,0,0,.4);transition:transform .14s,filter .14s,box-shadow .14s;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+.bar:hover{transform:translateY(-2px) scale(1.01);filter:brightness(1.1);box-shadow:0 7px 16px rgba(0,0,0,.28);z-index:5}
+.tlaxis{position:relative;height:22px;margin-top:8px;border-top:1px solid var(--hair)}
+.tick{position:absolute;top:6px;font-size:10.5px;color:var(--ink2);transform:translateX(-50%);white-space:nowrap}
+.tick::before{content:'';position:absolute;top:-7px;left:50%;width:1px;height:6px;background:var(--ink2);opacity:.5}
+.zeroline{position:absolute;top:0;width:1px;background:var(--cin);opacity:.4}
+.tlband{position:absolute;cursor:pointer;border-left:1px solid rgba(0,0,0,.05);transition:background .2s}
+.tlbandlab{position:absolute;top:4px;font-size:10.5px;font-weight:700;letter-spacing:.04em;white-space:nowrap;cursor:pointer;opacity:.8;transition:opacity .2s}
+.tlbandlab:hover{opacity:1}
+.tlbandlab.on{opacity:1;text-decoration:underline}
+.bar.dim,.alab.dim{opacity:.14;filter:grayscale(.45)}
+.bar,.alab{transition:opacity .22s,filter .22s,transform .14s,box-shadow .14s}
+.bandreset{border:1px solid var(--cin);color:var(--cin);background:transparent;border-radius:14px;padding:3px 12px;font-size:11.5px;cursor:pointer;font-family:inherit;transition:background .15s,color .15s}
+.bandreset:hover{background:var(--cin);color:#fff}
+.alab{position:absolute;transform:translateX(-50%);white-space:nowrap;text-align:center;cursor:pointer;color:var(--ink);line-height:1}
+.alab b{font-size:11px;font-weight:600}.alab .du{font-size:10px;font-weight:400;color:var(--ink2)}.alab b+.du{margin-left:3px}
+.alab:hover{color:var(--cin)}
+.tltip{position:fixed;z-index:300;background:var(--ink);color:var(--paper);padding:9px 12px;border-radius:9px;font-size:12px;line-height:1.6;pointer-events:none;opacity:0;transition:opacity .14s;max-width:250px;box-shadow:0 10px 24px rgba(0,0,0,.35)}
+.tltip b{font-size:13.5px;color:#fff}.tltip i{color:color-mix(in srgb,var(--gold) 80%,#fff);font-style:normal}
+.bar.period{border-style:dashed;border-color:rgba(255,255,255,.82)}
+.bdscroll{overflow-x:auto;scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--ink2) 14%,transparent) transparent}
+.bdscroll::-webkit-scrollbar{height:5px}
+.bdscroll::-webkit-scrollbar-track{background:transparent}
+.bdscroll::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--ink2) 14%,transparent);border-radius:99px}.bdinner{position:relative;min-width:100%}
+.sbar{position:absolute;height:34px;border-radius:6px;display:flex;align-items:center;justify-content:center;padding:0 3px;color:#fff;font-size:11px;font-weight:600;overflow:hidden;white-space:nowrap;border:1px solid rgba(255,255,255,.28);text-shadow:0 1px 2px rgba(0,0,0,.4);cursor:default;box-shadow:0 2px 6px rgba(0,0,0,.15);transition:transform .14s,filter .14s,box-shadow .14s}
+.sbar:hover{filter:brightness(1.13)}
+.sbar .sy{font-weight:400;opacity:.82;margin-left:3px;font-size:9px}
+.slab{position:absolute;transform:translateX(-50%);font-size:9px;color:var(--ink2);white-space:nowrap;line-height:1;pointer-events:none;text-align:center}
+.slab b{color:var(--ink);font-weight:600}.slab .du{color:var(--ink2)}
+.bdaxis{position:absolute;left:0;right:0;border-top:1px solid var(--hair)}
+.bdtick{position:absolute;font-size:9px;color:var(--ink2);transform:translateX(-50%);white-space:nowrap;line-height:1}
+.bdtick::before{content:'';position:absolute;top:-6px;left:50%;width:1px;height:5px;background:var(--ink2);opacity:.55}
+
+/* generic cards/grids */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.dcard{display:block;text-align:left;text-decoration:none;background:var(--card);border:1px solid var(--hair);border-left:4px solid var(--accent,#9c2b22);border-radius:4px 10px 10px 4px;padding:15px 17px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 24px -20px rgba(35,28,25,.5)}
+.dcard:hover{transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(0,0,0,.4)}
+.dcard .dn{font-size:21px;font-weight:700;color:var(--ink);font-family:var(--brush);letter-spacing:.04em}
+.dcard .dy{font-size:12px;color:var(--accent);font-weight:600;margin-top:1px}
+.dcard .dm{font-size:11.5px;color:var(--ink2);margin-top:6px;line-height:1.5}
+.dcard .dd{font-size:12.5px;color:#473d37;margin-top:8px;line-height:1.62}
+body.dark .dcard .dd{color:var(--ink2)}
+
+/* filter chips / controls */
+.controls{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{font-size:12.5px;color:var(--ink2);background:color-mix(in srgb,var(--card) 70%,transparent);border:1px solid var(--hair);padding:6px 13px;border-radius:18px;cursor:pointer;transition:all .2s;font-family:inherit}
+.chip:hover{color:var(--cin);border-color:var(--cin)}
+.chip.on{background:var(--cin);color:#fff;border-color:var(--cin)}
+select.sortsel{margin-left:auto;font-family:inherit;font-size:12.5px;color:var(--ink);background:var(--card);border:1px solid var(--hair);border-radius:8px;padding:6px 10px;cursor:pointer}
+.inp{width:100%;font-family:inherit;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:12px 16px}
+.inp:focus{outline:none;border-color:var(--cin)}
+
+/* dynasty template */
+#page-dynasty .dhero{position:relative;z-index:1;padding:30px 20px 22px;background:linear-gradient(180deg,color-mix(in srgb,var(--accent) 16%,var(--paper)),transparent);border-bottom:1px solid var(--hair)}
+.dhwrap{max-width:1140px;margin:0 auto}
+.crumb{font-size:12px;color:var(--ink2);margin-bottom:10px}.crumb a{color:var(--accent);text-decoration:none;cursor:pointer;font-weight:600}
+.dbar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px}
+.backbtn{font-family:inherit;font-size:13px;color:var(--cin);background:color-mix(in srgb,var(--cin) 9%,transparent);border:1px solid color-mix(in srgb,var(--cin) 28%,transparent);border-radius:20px;padding:6px 15px;cursor:pointer;transition:all .18s;white-space:nowrap;flex:none;font-weight:600}
+.backbtn:hover{background:var(--cin);color:#fff;border-color:var(--cin)}
+.backbtn:active{transform:scale(.95)}
+.fab-back{position:fixed;left:16px;bottom:18px;z-index:130;width:48px;height:48px;border-radius:50%;border:1px solid color-mix(in srgb,var(--cin) 30%,transparent);background:color-mix(in srgb,var(--paper) 92%,transparent);color:var(--cin);font-size:21px;line-height:1;cursor:pointer;display:none;align-items:center;justify-content:center;box-shadow:0 8px 24px -8px rgba(0,0,0,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:transform .18s,background .18s}
+.fab-back.show{display:flex}
+.fab-back:hover{background:var(--cin);color:#fff;transform:translateY(-2px)}
+.fab-back:active{transform:scale(.94)}
+.dtitle{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.dtitle .big{font-family:var(--brush);font-size:46px;color:var(--accent);line-height:.9}
+.dtitle .full{font-size:20px;font-weight:700;color:var(--ink)}.dtitle .yy{font-size:13px;color:var(--ink2);font-weight:600}
+.dtag{font-size:11px;color:#fff;background:var(--accent);padding:2px 10px;border-radius:20px}
+.subnav{position:sticky;top:var(--hdh,53px);z-index:90;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--hair);overflow-x:auto;white-space:nowrap;padding:8px 14px}
+.subnav button{font-size:12.5px;color:var(--ink2);background:none;border:none;padding:6px 11px;margin:0 1px;border-radius:7px;cursor:pointer;font-family:inherit;transition:all .18s}
+.subnav button:hover{color:var(--accent)}
+.subnav button.on{color:#fff;background:var(--accent)}
+.mod{scroll-margin-top:var(--modtop,104px);margin-bottom:30px}
+.mod h3{font-size:18px;font-weight:700;color:var(--accent);letter-spacing:.06em;display:flex;align-items:center;gap:10px;margin-bottom:13px}
+.mod h3::before{content:'';width:16px;height:2px;background:var(--accent)}
+.metarow{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-bottom:14px}
+.metabox{background:var(--card);border:1px solid var(--hair);border-radius:9px;padding:11px 13px}
+.metabox .k{font-size:11px;color:var(--ink2)}.metabox .v{font-size:14.5px;font-weight:700;color:var(--ink);margin-top:3px}
+.rich{margin-top:14px}.rich p{font-size:13.5px;line-height:1.9;color:#473d37;margin-bottom:10px}body.dark .rich p{color:var(--ink2)}
+.curvebox{background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:12px 10px 6px;overflow-x:auto;-webkit-overflow-scrolling:touch}.curvebox svg{min-width:860px}
+.subnav{scrollbar-width:none;-ms-overflow-style:none}
+.subnav::-webkit-scrollbar{display:none;height:0}
+.curvebox,.dgwrap,.dgscroll,.mapwrap,.tlscroll{scrollbar-width:thin;scrollbar-color:color-mix(in srgb,var(--ink2) 14%,transparent) transparent}
+.curvebox::-webkit-scrollbar,.dgwrap::-webkit-scrollbar,.dgscroll::-webkit-scrollbar,.mapwrap::-webkit-scrollbar,.tlscroll::-webkit-scrollbar{height:5px}
+.curvebox::-webkit-scrollbar-track,.dgwrap::-webkit-scrollbar-track,.dgscroll::-webkit-scrollbar-track,.mapwrap::-webkit-scrollbar-track,.tlscroll::-webkit-scrollbar-track{background:transparent}
+.curvebox::-webkit-scrollbar-thumb,.dgwrap::-webkit-scrollbar-thumb,.dgscroll::-webkit-scrollbar-thumb,.mapwrap::-webkit-scrollbar-thumb,.tlscroll::-webkit-scrollbar-thumb{background:color-mix(in srgb,var(--ink2) 14%,transparent);border-radius:99px}.curvecap{font-size:11.5px;color:var(--ink2);text-align:center;margin-top:4px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:12px}
+.cblock{background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:8px;padding:12px 14px}
+.cblock h5{font-size:14px;color:var(--ink);margin-bottom:5px}.cblock p{font-size:12.5px;color:#473d37;line-height:1.7}body.dark .cblock p{color:var(--ink2)}
+.csvg .evnode2{cursor:pointer;transition:opacity .2s}
+.csvg .evdotc{stroke:var(--paper);stroke-width:1.6;transition:r .15s,stroke-width .15s}
+.csvg .evnode2.sel .evdotc{r:7;stroke:var(--ink);stroke-width:1.7}
+.csvg[data-filter="政"] .evnode2:not([data-cat="政"]),.csvg[data-filter="军"] .evnode2:not([data-cat="军"]),.csvg[data-filter="文"] .evnode2:not([data-cat="文"]),.csvg[data-filter="外"] .evnode2:not([data-cat="外"]){opacity:.16}
+.evy{color:var(--gold);font-weight:800;font-size:12.5px}
+.evttl{font-size:14px;color:var(--ink);font-weight:700}
+.evdetail{margin-top:10px;padding:12px 15px;background:var(--card);border:1px solid var(--hair);border-left:4px solid var(--accent);border-radius:9px;font-size:12.5px;color:var(--ink2);line-height:1.75}
+.evdetail .evttl{font-size:15px}
+.evdetail p{margin:6px 0 0;color:#473d37}
+body.dark .evdetail p{color:var(--ink2)}
+.evdetail.flash{animation:evflash .55s ease}
+@keyframes evflash{0%{background:color-mix(in srgb,var(--accent) 16%,var(--card));border-left-color:var(--accent)}100%{background:var(--card)}}
+.evlist2{margin-top:6px}
+.evli{padding:9px 2px 10px;border-bottom:1px dashed var(--hair)}
+.evli:last-child{border-bottom:none}
+.evlh{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-bottom:3px}
+.evdotm{width:9px;height:9px;border-radius:50%;align-self:center;flex:none}
+.evli p{font-size:12.5px;color:#473d37;line-height:1.7;margin:0}
+body.dark .evli p{color:var(--ink2)}
+.evbar{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:10px;flex-wrap:wrap}
+.evbar .fchipsrow{margin:0}
+.evtablebtn{flex:none;font-size:12px;color:var(--accent);background:none;border:1px solid var(--accent);border-radius:8px;padding:4px 12px;cursor:pointer;font-weight:700;white-space:nowrap;transition:background .15s}
+.evtablebtn:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.evmodal{display:none;position:fixed;inset:0;background:rgba(22,17,12,.5);z-index:1200;align-items:center;justify-content:center;padding:18px}
+.evmodal.open{display:flex}
+.evmodal-in{background:var(--paper);border-radius:14px;max-width:780px;width:100%;max-height:84vh;display:flex;flex-direction:column;box-shadow:0 24px 64px -18px rgba(0,0,0,.55);overflow:hidden}
+.evmodal.open .evmodal-in{animation:popin .24s cubic-bezier(.2,.8,.2,1)}
+@keyframes popin{from{opacity:0;transform:translateY(12px) scale(.975)}to{opacity:1;transform:none}}
+.evmodal-hd{display:flex;align-items:center;justify-content:space-between;padding:13px 18px;border-bottom:1px solid var(--hair);flex-shrink:0}
+.evmodal-hd b{font-size:17px;color:var(--ink);font-family:var(--brush);letter-spacing:.03em}
+.evmodal-x{background:none;border:none;font-size:17px;color:var(--ink2);cursor:pointer;padding:2px 8px;line-height:1}
+.evmodal-body{overflow-y:auto;-webkit-overflow-scrolling:touch;flex:1 1 auto;min-height:0}
+.evnav{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-top:12px;padding-top:10px;border-top:1px dashed var(--hair)}
+.evnavb{font-size:12px;color:var(--accent);background:none;border:1px solid color-mix(in srgb,var(--accent) 32%,transparent);border-radius:8px;padding:5px 12px;cursor:pointer;font-weight:700;font-family:inherit;transition:background .15s,opacity .15s}
+.evnavb:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.evnavb:disabled{opacity:.32;cursor:default}
+.evnavc{font-size:11.5px;color:var(--ink2);font-variant-numeric:tabular-nums}
+.evmodal-tools{flex-shrink:0;display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--hair);flex-wrap:wrap}
+.evtchips{display:flex;gap:6px;flex-wrap:wrap}
+.evtsearch{flex:1;min-width:130px;font-size:12.5px;color:var(--ink);background:var(--card);border:1px solid var(--hair);border-radius:8px;padding:6px 11px;outline:none;font-family:inherit;transition:border-color .15s}
+.evtsearch:focus{border-color:var(--accent)}
+.evtempty{text-align:center;color:var(--ink2);font-size:13px;padding:26px 0}
+.evtable{width:100%;border-collapse:collapse;font-size:12.5px}
+.evtable thead th{text-align:left;padding:9px 16px;color:var(--ink2);font-weight:700;border-bottom:1.5px solid var(--hair);position:sticky;top:0;background:var(--paper);z-index:1}
+.evtable td{padding:9px 16px;border-bottom:1px dashed var(--hair);color:var(--ink2);vertical-align:top;line-height:1.65}
+.evtable tr:last-child td{border-bottom:none}
+.evtable td.evtt{color:var(--ink);font-weight:700}
+.evtable td.evty{color:var(--gold);font-weight:700;white-space:nowrap;font-variant-numeric:tabular-nums}
+.evtable .evtag{font-size:10px}
+.rulerlist{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:12px}
+.rulerc{background:var(--card);border:1px solid var(--hair);border-top:3px solid var(--accent);border-radius:9px;padding:12px 14px}
+.rh{display:flex;align-items:baseline;gap:7px}.rhl{display:flex;align-items:baseline;flex-wrap:nowrap;gap:6px;min-width:0;flex:1;overflow:hidden}.rt{font-size:12px;color:var(--accent);font-weight:600;flex-shrink:0}
+.py{font-style:normal;font-family:ui-sans-serif,-apple-system,"Segoe UI","Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;font-size:.8em;font-weight:400;color:var(--ink2);letter-spacing:.01em;white-space:nowrap}.rn{font-size:18px;font-weight:700;color:var(--ink);font-family:var(--brush);letter-spacing:.02em;flex-shrink:0}
+.rmeta{font-size:11.5px;color:var(--ink2);margin:3px 0 5px}.rulerc p{font-size:11px;color:#473d37;line-height:1.6;margin:0;word-break:break-word}body.dark .rulerc p{color:var(--ink2)}
+.figmini-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:11px}
+.figmini{background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:8px;padding:11px 13px;content-visibility:auto;contain-intrinsic-size:auto 120px}
+.fmh{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}.fmn{font-size:15px;font-weight:700;color:var(--ink)}.fmr{font-size:11px;color:var(--accent);font-weight:600}.fmd{font-size:10.5px;color:var(--ink2);margin-left:auto}
+.figmini p{font-size:12px;color:#473d37;line-height:1.6;margin-top:4px}body.dark .figmini p{color:var(--ink2)}
+.figmini.expandable{cursor:pointer}
+.figmini.expandable:hover{border-left-color:var(--accent);box-shadow:0 6px 18px -14px rgba(0,0,0,.4)}
+.figcaret{margin-left:6px;color:var(--accent);font-size:11px;transition:transform .22s;flex:none}
+.figmini.open .figcaret{transform:rotate(180deg)}
+.figbio{max-height:0;overflow:hidden;opacity:0;font-size:12px;line-height:1.85;color:#473d37;transition:max-height .3s ease,opacity .25s,margin-top .25s,padding-top .25s}
+body.dark .figbio{color:var(--ink2)}
+.figdy{font-size:10.5px;color:#fff;border-radius:9px;padding:1px 8px;font-weight:700;white-space:nowrap}
+.fmr2{font-size:11.5px;color:var(--ink2);margin:3px 0 4px;font-weight:600}
+.figcount{font-size:12px;color:var(--ink2);margin-bottom:11px}
+.srhead{font-size:13px;font-weight:700;color:var(--azure);margin:20px 0 10px;letter-spacing:.06em}
+.srhead:first-child{margin-top:2px}
+.mapwrap{position:relative;max-width:720px;margin:0 auto}
+.mapcanvas{position:relative;width:100%;line-height:0}
+.mapcompass{position:absolute;font-size:12px;color:var(--ink2);font-weight:700;opacity:.55;z-index:1;letter-spacing:.1em}
+.mc-n{top:9px;left:50%;transform:translateX(-50%)}
+.mc-s{bottom:9px;left:50%;transform:translateX(-50%)}
+.mc-w{left:11px;top:50%;transform:translateY(-50%)}
+.mc-e{right:11px;top:50%;transform:translateY(-50%)}
+.mappin{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;z-index:2;transition:all .2s}
+.mpdot{width:9px;height:9px;border-radius:50%;background:var(--ink2);opacity:.45;box-shadow:0 0 0 3px color-mix(in srgb,var(--ink2) 14%,transparent)}
+.mplbl{font-size:11px;color:var(--ink2);margin-top:4px;white-space:nowrap;background:color-mix(in srgb,var(--paper) 78%,transparent);padding:0 5px;border-radius:5px}
+.mappin.on{z-index:4}
+.mappin.on .mpdot{background:var(--pc);opacity:1;width:15px;height:15px;box-shadow:0 0 0 6px color-mix(in srgb,var(--pc) 20%,transparent)}
+.mappin.on .mplbl{color:var(--pc);font-weight:800;font-size:12px}
+.mapcap{font-size:13px;color:var(--ink2);margin:15px 0 4px;line-height:1.7;min-height:20px}
+.cmap{background:transparent}
+.cmap-land{fill:color-mix(in srgb,var(--ink2) 10%,var(--paper));stroke:color-mix(in srgb,var(--ink2) 38%,transparent);stroke-width:.6;stroke-linejoin:round}
+.cmap-river{fill:none;stroke:var(--azure);stroke-width:1.5;opacity:.5;stroke-linecap:round;stroke-linejoin:round}
+.cmap-dot{fill:var(--ink2);stroke:#fff;stroke-width:1.3;opacity:.62;transition:all .2s}
+.cmap-dot.on{opacity:1}
+.cmap-lead{stroke:color-mix(in srgb,var(--ink2) 55%,transparent);stroke-width:.8}
+.cmap-lbl{font-family:'Noto Serif SC',serif;font-size:12.5px;fill:var(--ink2);paint-order:stroke;stroke:var(--paper);stroke-width:3px;stroke-linejoin:round}
+body.dark .cmap-lbl{stroke:var(--card)}
+.cmap-lbl.on{font-weight:700;font-size:12px}
+.cmap-insetbox{fill:none;stroke:color-mix(in srgb,var(--ink2) 32%,transparent);stroke-width:.7}
+.cmap-insetlbl{font-family:'Noto Serif SC',serif;font-size:10.5px;fill:var(--ink2);text-anchor:middle;font-weight:700}
+.cmap-dash{fill:none;stroke:color-mix(in srgb,var(--cin) 58%,transparent);stroke-width:1.4;stroke-dasharray:5 4;stroke-linecap:round}
+.cmap-isle{fill:var(--cin);opacity:.75}
+.capgrid{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px}
+.capitem{font-size:12.5px;color:var(--ink2);line-height:1.5}
+.capitem b{color:var(--ink);margin-right:5px;font-weight:700}
+.snakewrap{grid-column:1/-1;width:100%;margin:10px 0 4px}
+.snakemap{overflow:visible}
+.snake-link{fill:none;stroke:color-mix(in srgb,var(--ink2) 42%,transparent);stroke-width:2.2;stroke-linecap:round}
+.snode{cursor:pointer;text-decoration:none}
+.snode-box{fill:color-mix(in srgb,var(--accent) 10%,var(--card));stroke:var(--accent);stroke-width:1.5;transition:fill .15s,stroke-width .15s}
+.snode:hover .snode-box{fill:color-mix(in srgb,var(--accent) 20%,var(--card));stroke-width:2.6}
+.snode-name{font-family:'Noto Serif SC',serif;font-weight:800;font-size:23px;fill:var(--accent);text-anchor:middle}
+.snode-yr{font-size:13px;fill:var(--ink2);text-anchor:middle}
+.snode-note{font-size:12.5px;fill:color-mix(in srgb,var(--ink) 66%,transparent);text-anchor:middle}
+.snode-rule{stroke:color-mix(in srgb,var(--accent) 32%,transparent);stroke-width:1}
+.figmini.open .figbio{max-height:360px;opacity:1;margin-top:8px;padding-top:8px;border-top:1px dashed var(--hair)}
+.stategrid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+.statecard{position:relative;border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:11px;padding:13px 15px;background:color-mix(in srgb,var(--paper) 60%,transparent)}
+.statecard.key{border-left-width:4px;box-shadow:0 10px 26px -18px rgba(0,0,0,.5);background:color-mix(in srgb,var(--accent) 7%,var(--paper))}
+.statetag{position:absolute;top:11px;right:12px;font-size:10.5px;color:#fff;background:var(--accent);border-radius:10px;padding:2px 9px;letter-spacing:.06em}
+.sth{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap;padding-right:46px}
+.stn{font-size:16px;font-weight:800;color:var(--ink);letter-spacing:.02em}
+.sty{font-size:12px;color:var(--accent);font-weight:700}
+.stw{font-size:12px;color:var(--ink2);margin:4px 0 7px;font-weight:600}
+.statecard p{font-size:12.5px;line-height:1.78;color:#473d37}
+body.dark .statecard p{color:var(--ink2)}
+.compohint{font-size:12px;color:var(--ink2);margin-bottom:11px;line-height:1.7}
+.statecard.hl{outline:2px solid var(--accent);outline-offset:2px;box-shadow:0 14px 32px -14px var(--accent)}
+.sbar.sbar-link{cursor:pointer}.sbar.sbar-link:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 5px 14px rgba(0,0,0,.22)}
+.sbar.sbar-link:hover{filter:brightness(1.13);box-shadow:inset 0 0 0 2px rgba(255,255,255,.55)}
+.stcap{color:var(--accent);font-weight:700}
+body.dark .stcap{color:color-mix(in srgb,var(--accent) 72%,#fff)}
+.st-locate{margin-top:9px;font-family:inherit;font-size:11px;color:var(--ink2);background:none;border:1px solid var(--hair);border-radius:7px;padding:3px 10px;cursor:pointer;transition:all .16s}
+.st-locate:hover{color:#fff;background:var(--accent);border-color:var(--accent)}
+.stchron{margin:9px 0 3px;border-top:1px dashed var(--hair);padding-top:8px;display:flex;flex-direction:column;gap:5px}
+.stchi{font-size:11.5px;color:var(--ink2);line-height:1.55;display:flex;gap:8px;align-items:baseline}
+.stcy{color:var(--accent);font-weight:700;flex:none;font-variant-numeric:tabular-nums;min-width:46px;text-align:right}
+.sbar.sbar-key{box-shadow:inset 0 0 0 1.5px var(--gold)}
+.sbar.sbar-key::after{content:'★';position:absolute;top:0;right:2px;font-size:8px;line-height:1.2;color:var(--gold);text-shadow:0 1px 1px rgba(0,0,0,.45);pointer-events:none}
+.sbar.sbar-key.sbar-link:hover{box-shadow:inset 0 0 0 2px var(--gold)}
+.sbar.locate{box-shadow:0 0 0 3px var(--cin),0 4px 12px rgba(0,0,0,.3)!important;z-index:6}
+.tstrip{display:flex;flex-wrap:wrap;align-items:center;gap:7px 5px;margin-top:4px}
+.tstage{font-size:13px;font-weight:700;color:#fff;background:var(--c);border-radius:8px;padding:5px 12px;white-space:nowrap;box-shadow:0 4px 12px -8px rgba(0,0,0,.5)}
+.tarrow{color:var(--ink2);font-size:15px;margin:0 1px}
+.tnodes{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:6px}
+.tnode{border:1px solid var(--hair);border-left:3px solid var(--c);border-radius:10px;padding:12px 15px;background:color-mix(in srgb,var(--paper) 60%,transparent)}
+.tnh{font-size:14.5px;font-weight:800;color:var(--c);margin-bottom:5px;letter-spacing:.02em}
+.insight{background:linear-gradient(180deg,color-mix(in srgb,var(--gold) 8%,transparent),transparent);border:1px solid color-mix(in srgb,var(--gold) 22%,transparent);border-left:3px solid var(--gold);border-radius:0 12px 12px 0;padding:15px 20px}
+.insight p{margin-bottom:11px}.insight p:last-child{margin-bottom:0}
+.tgrp-h{grid-column:1/-1;display:flex;align-items:center;gap:10px;margin:28px 0 13px;font-family:'Noto Serif SC',serif;font-weight:800;font-size:15px;color:var(--ink2);letter-spacing:.05em}
+.tgrp-h::before{content:"";width:5px;height:17px;border-radius:3px;background:var(--gold)}
+.tgrp-h::after{content:"";flex:1;height:1px;background:var(--hair)}
+.tgrp-h.first{margin-top:6px}
+.tgrp-top .tcard{border-top-color:var(--accent)}
+.tgrp-top .tg{color:var(--accent)}
+.deep-gloss{display:grid;grid-template-columns:repeat(2,1fr);gap:10px 18px;margin-top:12px}
+.deep-gloss>div{border-left:2px solid color-mix(in srgb,var(--accent) 42%,transparent);padding-left:11px}
+.deep-gloss dt{font-weight:800;font-size:13.5px;color:var(--ink);margin-bottom:2px}
+.deep-gloss dd{margin:0;font-size:12.7px;line-height:1.75;color:#5b5048}
+body.dark .deep-gloss dd{color:var(--ink2)}
+.deep-tablewrap{margin-top:12px;overflow-x:auto;border:1px solid var(--hair);border-radius:10px}
+.deep-table{width:100%;border-collapse:collapse;font-size:12.8px}
+.deep-table th,.deep-table td{padding:9px 12px;text-align:left;border-bottom:1px solid var(--hair);line-height:1.7;vertical-align:top}
+.deep-table thead th{background:color-mix(in srgb,var(--accent) 9%,transparent);color:var(--accent);font-weight:800;white-space:nowrap}
+.deep-table tbody th{font-weight:800;color:var(--ink);white-space:nowrap}
+.deep-table tbody tr:last-child th,.deep-table tbody tr:last-child td{border-bottom:none}
+.deep-lineage{display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:11px;margin-top:12px}
+.dl-node{border:1px solid var(--hair);border-top:2px solid var(--accent);border-radius:9px;padding:11px 13px;background:color-mix(in srgb,var(--paper) 55%,transparent)}
+.dl-h{font-weight:800;font-size:13.5px;color:var(--accent);margin-bottom:3px}
+.dl-m{font-size:12.5px;color:var(--ink);font-weight:600;line-height:1.6}
+.dl-n{margin:5px 0 0;font-size:12px;color:var(--ink2);line-height:1.65}
+.deep-works{display:grid;grid-template-columns:repeat(auto-fill,minmax(218px,1fr));gap:11px;margin-top:12px}
+.dw-card{border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:9px;padding:11px 14px;background:color-mix(in srgb,var(--paper) 55%,transparent)}
+.dw-t{font-family:'Noto Serif SC',serif;font-weight:800;font-size:14px;color:var(--ink)}
+.dw-by{font-size:11.5px;color:var(--accent);margin:1px 0 5px}
+.dw-card p{margin:0;font-size:12.4px;line-height:1.7;color:#5b5048}
+body.dark .dw-card p,body.dark .deep-table td,body.dark .deep-table tbody th{color:var(--ink2)}
+@media(max-width:640px){.deep-gloss{grid-template-columns:1fr}}
+@media(max-width:560px){
+.deep-tablewrap{overflow:visible;border:none;border-radius:0}
+.deep-table thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.deep-table,.deep-table tbody,.deep-table tr,.deep-table th,.deep-table td{display:block;width:auto}
+.deep-table tr{border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:9px;padding:10px 13px;margin-bottom:10px;background:color-mix(in srgb,var(--paper) 55%,transparent)}
+.deep-table tbody tr:last-child{margin-bottom:0}
+.deep-table tbody th{padding:0 0 6px;border:none;font-size:14.5px;color:var(--accent)}
+.deep-table td{padding:4px 0;border:none;font-size:12.7px;line-height:1.6}
+.deep-table td::before{content:attr(data-label);display:block;font-size:10.5px;font-weight:700;color:var(--ink2);margin-bottom:1px;letter-spacing:.02em}
+}
+@media(max-width:600px){
+.dgwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid color-mix(in srgb,var(--hair) 62%,transparent);border-radius:12px;padding:15px 16px 10px;background:color-mix(in srgb,var(--paper) 42%,transparent)}
+.dgwrap .dgsvg{width:720px;max-width:none;margin:0}
+}
+@media(max-width:560px){
+.mapwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border:1px solid var(--hair);border-radius:10px}
+.mapcanvas{min-width:480px}
+.deep-lineage{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+}
+@media(max-width:480px){.deep-lineage{grid-template-columns:1fr}}
+@media(max-width:560px){
+.evlh{gap:5px 8px}
+.evdotm{order:0}.evy{order:1}.evtag{order:2}
+.evttl{flex:1 1 100%;order:3;font-size:13.5px;line-height:1.5;margin-top:1px}
+}
+@media(max-width:560px){
+.evtable thead{display:none}
+.evtable,.evtable tbody,.evtable tr,.evtable td{display:block;width:auto}
+.evtable tr{border:1px solid var(--hair);border-left:3px solid color-mix(in srgb,var(--gold) 55%,transparent);border-radius:9px;padding:10px 13px;margin-bottom:9px;background:color-mix(in srgb,var(--paper) 45%,transparent)}
+.evtable td{padding:0;border:none}
+.evtable td.evty{display:inline;font-size:12.5px}
+.evtable td:nth-child(2){display:inline-block;margin-left:8px}
+.evtable td.evtt{display:block;font-size:14px;line-height:1.45;margin:5px 0 3px}
+.evtable td:nth-child(4){display:block;font-size:12.7px;line-height:1.62;color:var(--ink2)}
+}
+a.tstage{text-decoration:none;cursor:pointer;transition:transform .12s,box-shadow .12s}
+a.tstage:hover{transform:translateY(-1px);box-shadow:0 6px 14px -7px rgba(0,0,0,.55);filter:brightness(1.06)}
+.reltip{font-size:12.5px;color:var(--ink2);margin:2px 0 11px;line-height:1.7}
+.relgrp{display:flex;gap:9px 12px;align-items:baseline;margin:0 0 9px;flex-wrap:wrap}
+.relgl{flex:0 0 auto;min-width:5.2em;font-size:11.5px;font-weight:800;color:var(--gold);letter-spacing:.03em}
+.relgrp .tsee{flex:1 1 70%;margin-top:0}
+.tnode-link{display:block;text-decoration:none;color:inherit;cursor:pointer;position:relative;transition:transform .15s,box-shadow .15s,border-color .15s}
+.tnode-link:hover{transform:translateY(-2px);box-shadow:0 13px 26px -18px rgba(0,0,0,.42);border-left-color:var(--c)}
+.tn-go{display:inline-block;margin-top:8px;font-size:11.5px;color:var(--c);font-weight:700;opacity:.9}
+.tnode-link:hover .tn-go{opacity:1}
+.tsee{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.tsee a{display:inline-flex;align-items:center;gap:5px;text-decoration:none;font-size:12.5px;font-weight:700;color:var(--ink);background:color-mix(in srgb,var(--gold) 10%,transparent);border:1px solid color-mix(in srgb,var(--gold) 32%,transparent);border-radius:999px;padding:5px 13px;transition:background .15s,transform .15s}
+.tsee a:hover{background:color-mix(in srgb,var(--gold) 20%,transparent);transform:translateY(-1px)}
+.tsee a .sg{font-family:var(--brush);color:var(--gold);font-size:15px;line-height:1}
+.govnote{margin-top:16px;background:color-mix(in srgb,var(--accent) 7%,transparent);border-left:3px solid var(--accent);border-radius:0 10px 10px 0;padding:12px 16px;font-size:13px;line-height:1.85;color:#473d37}
+.govnote b{color:var(--accent);font-weight:800}
+body.dark .govnote{color:var(--ink2)}
+.frate{display:flex;flex-wrap:wrap;gap:8px 14px}
+.fratewrap{display:flex;align-items:center;gap:16px;flex-wrap:wrap;margin-bottom:10px;padding-bottom:10px;border-bottom:1px dashed var(--hair)}
+.frad{flex:0 0 auto}
+.frad .rdgrid{stroke:color-mix(in srgb,var(--ink2) 28%,transparent);stroke-width:.7;fill:none}
+.frad .rdfill{fill:color-mix(in srgb,var(--accent) 24%,transparent);stroke:var(--accent);stroke-width:1.4}
+.frad .rddot{fill:var(--accent)}
+.frad .rdlab{fill:var(--ink2);font-size:8.5px;text-anchor:middle;font-family:'Noto Serif SC',serif}
+.govchart-cap{font-size:12px;color:var(--gold);font-weight:700;margin-bottom:8px;padding-left:1px}
+.frcell{display:inline-flex;align-items:center;gap:4px;font-size:11.5px;color:var(--ink2)}
+.frcell b{color:var(--accent);font-weight:800;margin-right:1px;font-size:12px}
+.fdot{width:7px;height:7px;border-radius:50%;background:color-mix(in srgb,var(--ink2) 22%,transparent);display:inline-block}
+.fdot.on{background:var(--accent)}
+.ratehint{font-size:12px;color:var(--ink2);margin-right:6px;align-self:center;opacity:.85}
+.figcmp{display:flex;gap:16px;align-items:center;background:color-mix(in srgb,var(--card) 78%,transparent);border:1px solid var(--hair);border-radius:12px;padding:12px 16px;margin-bottom:14px;flex-wrap:wrap}
+.figcmp.empty{justify-content:center;text-align:center;color:var(--ink2);font-size:12.5px;line-height:1.6}
+.cmpradar{flex:0 0 auto}
+.cmpradar .rdgrid{stroke:color-mix(in srgb,var(--ink2) 26%,transparent);stroke-width:.8;fill:none}
+.cmpradar .rdlab{fill:var(--ink2);font-size:11px;text-anchor:middle;font-weight:700;font-family:'Noto Serif SC',serif}
+.cmplegs{flex:1 1 200px;min-width:180px}
+.cmphd{font-size:13px;font-weight:700;color:var(--ink);letter-spacing:.05em;margin-bottom:9px;display:flex;align-items:center;gap:10px}
+.cmpclear{font-size:11px;font-family:inherit;color:var(--ink2);background:none;border:1px solid var(--hair);border-radius:7px;padding:2px 10px;cursor:pointer;transition:all .15s}
+.cmpclear:hover{color:var(--cin);border-color:var(--cin)}
+.cmpleg{display:flex;align-items:center;gap:9px;font-size:12.5px;color:var(--ink);padding:3px 0}
+.cmpdot{width:11px;height:11px;border-radius:3px;flex:none}
+.cmpleg b{min-width:56px}
+.cmpvals{color:var(--ink2);font-size:11px;font-variant-numeric:tabular-nums;letter-spacing:.06em}
+.cmpx{margin-left:auto;font-family:inherit;font-size:14px;line-height:1;color:var(--ink2);background:none;border:none;cursor:pointer;padding:1px 6px;border-radius:5px}
+.cmpx:hover{color:#fff;background:var(--cin)}
+.figcmpbtn{display:inline-block;margin-top:9px;font-family:inherit;font-size:11px;color:var(--accent);background:none;border:1px solid color-mix(in srgb,var(--accent) 36%,transparent);border-radius:20px;padding:3px 12px;cursor:pointer;white-space:nowrap;transition:all .15s}
+.figcmpbtn:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.figcmpbtn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.dgwrap{overflow-x:auto;padding:15px 16px 10px}
+.dgsvg{max-width:720px;margin:0 auto;display:block}
+.dgscroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:640px){.dgscroll .dgsvg{min-width:720px;margin:0}.dgscroll{padding-bottom:3px}.govchart-cap::after{content:'　·　左右滑动查看 →';font-weight:700;font-size:10.5px;color:var(--azure)}}
+.dgsvg text{font-family:'Noto Serif SC',serif;fill:var(--ink2)}
+.dgsvg .wt{fill:#fff!important;font-weight:700}
+.csvg .rlbl{fill:#5a4d42}
+.csvg .cann{fill:var(--ink2);font-size:9px;font-weight:600;paint-order:stroke;stroke:var(--paper);stroke-width:2.6px;stroke-linejoin:round}
+body.dark .csvg .rlbl{fill:#e6dac6}
+.dgsvg .t-strong{fill:var(--ink);font-weight:700}
+.dgsvg .t-gold{fill:var(--gold);font-weight:800}
+.dgsvg .pill-old{fill:none;stroke:var(--ink2);stroke-width:1.1;opacity:.5}
+.dgsvg .pill-new{fill:none;stroke:var(--cin);stroke-width:1.4}
+.dgsvg .axis{stroke:var(--gold);stroke-width:2}
+.dgsvg .dot{fill:var(--gold)}
+.dgsvg .ring{fill:var(--paper)}
+.dgsvg .box{fill:none;stroke:var(--gold);stroke-width:1.2}
+.dgsvg .neu{stroke:var(--ink2);stroke-width:1.1;opacity:.5;fill:none}
+.dgsvg .neufill{fill:var(--ink2);opacity:.5}
+.dgsvg .base{stroke:#d9c9a8;stroke-width:1}
+body.dark .dgsvg .base{stroke:#4a4036}
+.tnode p{font-size:12.5px;line-height:1.78;color:#473d37}
+body.dark .tnode p{color:var(--ink2)}
+@media(max-width:720px){.tnodes{grid-template-columns:1fr}}
+@media(max-width:720px){.stategrid{grid-template-columns:1fr}}
+.storynote{font-size:12px;color:var(--ink2);background:color-mix(in srgb,var(--accent) 8%,transparent);border:1px solid var(--hair);border-radius:9px;padding:10px 14px;margin-bottom:14px;line-height:1.7}
+.storylist{display:flex;flex-direction:column;gap:12px}
+.storyc{background:var(--card);border:1px solid var(--hair);border-left:3px solid var(--accent);border-radius:9px;padding:13px 16px}
+.storyhd{display:flex;align-items:center;gap:10px;margin-bottom:7px}
+.storyn{flex:none;width:25px;height:25px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;font-weight:700;display:grid;place-items:center;font-family:var(--brush)}
+.storyt{font-size:15.5px;font-weight:700;color:var(--ink)}
+.storyc p{font-size:13px;line-height:1.85;color:#473d37}body.dark .storyc p{color:var(--ink2)}
+.storylinks{display:flex;gap:16px;flex-wrap:wrap;margin-top:9px;padding-top:8px;border-top:1px dashed var(--hair)}
+.storylinks a{font-size:11.5px;color:var(--accent);cursor:pointer;font-weight:600}.storylinks a:hover{text-decoration:underline}
+.cblock.hl,.figmini.hl{box-shadow:0 0 0 2px var(--accent),0 12px 26px -16px rgba(0,0,0,.45);transition:box-shadow .2s}
+@media(max-width:720px){.figmini-grid{grid-template-columns:1fr}}
+.fchipsrow{margin-bottom:14px}
+.evtag{font-size:10px;padding:1px 7px;border-radius:10px;color:#fff;vertical-align:middle;white-space:nowrap}
+.reignbar{display:flex;gap:2px;border-radius:8px;overflow:hidden;margin-bottom:7px}
+.rseg{flex-shrink:1;min-width:0;border:none;cursor:pointer;height:30px;color:#fff;font-size:10.5px;font-family:inherit;overflow:hidden;white-space:nowrap;text-shadow:0 1px 1px rgba(0,0,0,.4);background:var(--accent);transition:filter .15s;padding:0 2px;display:flex;align-items:center;justify-content:center}
+.rseg:nth-child(even){background:#7a1f18}body.dark .rseg:nth-child(even){background:#6e2820}
+.rseg:hover{filter:brightness(1.2)}.rseg.on{filter:brightness(1.28);box-shadow:inset 0 0 0 2px #fff}
+.reigncap{font-size:11px;color:var(--ink2);margin-bottom:12px}
+.modcap-row{text-align:right;margin:-6px 0 10px;min-height:1px}
+.modcap{display:inline-block;font-size:12.5px;color:var(--accent);font-weight:700;background:color-mix(in srgb,var(--accent) 9%,transparent);border:1px solid color-mix(in srgb,var(--accent) 26%,transparent);border-radius:20px;padding:4px 14px}
+.rdur{flex-shrink:0;font-size:11.5px;color:var(--accent);font-weight:600;white-space:nowrap;align-self:baseline}
+.rulerc{transition:box-shadow .2s,transform .2s}.rulerc.hl{box-shadow:0 0 0 2px var(--accent),0 12px 26px -16px rgba(0,0,0,.45);transform:translateY(-2px)}
+
+/* ===== 移动端适配 ===== */
+@media(max-width:560px){
+  .hd{padding:8px 12px;gap:8px}.bname{font-size:14.5px}.bname small{font-size:8.5px;letter-spacing:.18em}.bseal{width:30px;height:30px;font-size:18px}
+    .wrap{padding:22px 14px 46px}
+  .hero{padding:32px 14px 20px}.hero .kick{letter-spacing:.3em}.hero .sub{font-size:13px}
+  .shead{gap:10px}.shead .sn{font-size:27px}.shead h2{font-size:19px}.shead p{font-size:11.5px}
+  .tlsec{padding:6px 12px 30px}.tlbar h3{font-size:14px}.zoom input{width:88px}
+  .cards,.tgrid,.cgrid,.rulerlist,.figmini-grid,.cmpgrid{grid-template-columns:1fr}
+  .metarow{grid-template-columns:repeat(2,1fr)}
+  .dhero{padding:24px 14px 18px}.dtitle .big{font-size:38px}.dtitle .full{font-size:17px}.dtitle .yy{font-size:12px}
+  .subnav{padding:7px 10px}.subnav button{font-size:12px;padding:8px 12px}
+  .mod h3{font-size:16px}
+  .evttl{font-size:13px}
+  .rseg{font-size:9px;height:28px}.rseg span{transform:scale(.92)}
+  .rich p{font-size:13px}
+  .mplbl{font-size:9.5px;padding:0 3px}.mapcompass{font-size:10px}.mapcap{font-size:12px}
+  .spec{padding:6px 16px}.spec li{font-size:12.5px}.note{padding:12px 14px}
+  .statecard,.tnode{padding:11px 13px}.stn{font-size:15px}
+  .rdur{font-size:10.5px}.modcap{font-size:11.5px;padding:3px 11px}
+}
+@media(max-width:380px){.dtitle .big{font-size:32px}.hero h1{letter-spacing:.08em}.metarow{grid-template-columns:1fr 1fr}}
+
+/* placeholders / skeletons */
+.ph{border:1.5px dashed color-mix(in srgb,var(--ink) 26%,transparent);border-radius:11px;background:color-mix(in srgb,var(--ink) 3%,transparent);color:var(--ink2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-size:13px;padding:22px;min-height:74px}
+.ph .pic{font-size:11px;opacity:.72;margin-top:5px;letter-spacing:.02em}
+.sk{height:12px;border-radius:6px;background:linear-gradient(90deg,color-mix(in srgb,var(--ink) 6%,transparent),color-mix(in srgb,var(--ink) 13%,transparent),color-mix(in srgb,var(--ink) 6%,transparent));background-size:200% 100%;animation:sh 1.7s infinite;margin:8px 0}
+@keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
+.sk.w40{width:40%}.sk.w55{width:55%}.sk.w70{width:70%}.sk.w85{width:85%}
+.skgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:11px}
+.skcard{border:1px solid var(--hair);border-radius:9px;padding:13px;background:var(--card)}
+.skcard .lbl{font-size:11px;color:var(--ink2);margin-bottom:8px;letter-spacing:.03em}
+
+/* topics */
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.tcard{text-align:left;background:var(--card);border:1px solid var(--hair);border-top:3px solid var(--gold);border-radius:10px;padding:17px;cursor:pointer;transition:transform .2s,box-shadow .2s;box-shadow:0 10px 24px -20px rgba(35,28,25,.5)}
+.tcard:hover{transform:translateY(-4px);box-shadow:0 18px 36px -22px rgba(0,0,0,.4)}
+.tcard .tg{font-family:var(--brush);font-size:26px;color:var(--gold);line-height:1}
+.tcard h4{font-size:16px;color:var(--ink);margin-top:8px}.tcard p{font-size:12px;color:var(--ink2);margin-top:5px;line-height:1.6}
+
+/* compare */
+.cmpsel{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:20px}
+.cmpsel select{flex:1;min-width:160px;font-family:inherit;font-size:15px;color:var(--ink);background:var(--card);border:1px solid var(--hair);border-radius:10px;padding:11px 14px;cursor:pointer}
+.cmpgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+.cmpcol{background:var(--card);border:1px solid var(--hair);border-radius:11px;overflow:hidden}
+.cmpcol .ch{padding:14px 16px;color:#fff}.cmpcol .ch .n{font-family:var(--brush);font-size:30px;line-height:1}.cmpcol .ch .y{font-size:12px;opacity:.92;margin-top:2px}
+.crow2{display:flex;padding:10px 16px;border-top:1px solid var(--hair);font-size:13px;gap:10px}
+.crow2 .k{color:var(--ink2);flex:none;width:64px}.crow2 .v{color:var(--ink);font-weight:600}
+.crow2 .v.ph2{color:var(--ink2);font-weight:400;font-style:italic;opacity:.7}
+
+/* map / about */
+.note{font-size:12px;color:var(--ink2);background:color-mix(in srgb,var(--azure) 8%,transparent);border:1px solid var(--hair);border-radius:10px;padding:13px 16px;margin-top:16px;line-height:1.7}
+.spec{background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:8px 22px;margin-bottom:16px}
+.spec h4{font-size:15px;color:var(--cin);margin:18px 0 8px;letter-spacing:.04em}
+.spec ul{margin:0 0 8px;padding-left:20px}.spec li{font-size:13px;color:#473d37;line-height:1.85;margin:3px 0}
+body.dark .spec li{color:var(--ink2)}
+.spec code{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;background:color-mix(in srgb,var(--ink) 7%,transparent);padding:1px 6px;border-radius:5px}
+
+/* footer */
+.ft{border-top:1px solid var(--hair);background:color-mix(in srgb,var(--ink) 3%,transparent);padding:28px 20px;text-align:center;position:relative;z-index:1}
+.ft .fn{display:flex;flex-wrap:wrap;gap:8px 16px;justify-content:center;margin-bottom:12px}.ft .fn a{font-size:12.5px;color:var(--ink2);text-decoration:none;cursor:pointer}.ft .fn a:hover{color:var(--cin)}
+.ft p{font-size:11.5px;color:var(--ink2);line-height:1.6}.ft .fm{font-family:var(--brush);color:var(--cin);font-size:18px}
+
+@media(max-width:840px){
+  body{background-attachment:scroll}
+  .nav{position:absolute;top:53px;right:12px;flex-direction:column;gap:2px;background:var(--card);border:1px solid var(--hair);border-radius:12px;padding:8px;box-shadow:0 16px 36px -18px rgba(0,0,0,.4);display:none;min-width:140px;z-index:120}
+  .nav.open{display:flex}.nav a.on::after{display:none}.mbtn{display:block}
+  .cmpgrid{grid-template-columns:1fr}
+}
+.rpa{font-size:10px;color:var(--ink2);font-weight:400;letter-spacing:0;white-space:nowrap;flex-shrink:1;min-width:0;overflow:hidden;text-overflow:ellipsis}
+.rulerc ruby{ruby-position:over;ruby-align:center}.rulerc rt{font-size:.62em;font-weight:400;color:var(--ink2);font-family:ui-sans-serif,-apple-system,"Segoe UI","Noto Sans SC","PingFang SC",sans-serif;line-height:1;letter-spacing:0}
+.gridlegend{font-size:12px;color:var(--ink2);margin:0 0 12px;line-height:1.6}
+.dw-q{margin-top:7px;padding:7px 10px;background:color-mix(in srgb,var(--gold) 8%,transparent);border-left:2px solid var(--gold);border-radius:0 7px 7px 0;font-size:12px;line-height:1.7;color:var(--ink2);font-family:'Noto Serif SC',serif}
+.csum{font-size:13.5px;line-height:1.78;margin:2px 0 14px;color:var(--ink)}.csum-out{margin:15px 0 2px;padding-top:12px;border-top:1px solid var(--hair);color:var(--ink2);font-size:13px;line-height:1.75}.csum-out b{color:var(--cin);font-weight:700}
+@media print{
+  .hd,.subnav,.fab-back,.iconbtn,.mbtn,.ft,.zoom,.bandreset,.tlhint,.backbtn,.evbar,.evtablebtn,.figcmpbtn,.figcaret,.st-locate,.controls,.chips,.sortsel,.tltip,.evmodal,.modcap-row{display:none!important}
+  body{background:#fff!important;color:#000!important}
+  body::before{display:none!important}
+  .page{display:block!important}
+  .figbio{max-height:none!important;opacity:1!important;overflow:visible!important}
+  .wrap,.tlsec,.dhwrap{max-width:100%!important}
+  a{color:#000!important;text-decoration:none!important}
+  .mod,.dcard,.tcard,.statecard,.cblock,.rulerc{break-inside:avoid;page-break-inside:avoid}
+  .curvebox,.dgwrap,.mapwrap{overflow:visible!important}
+}
+</style>
+
+<style id="local-font">
+@font-face{font-family:'Noto Serif SC';font-style:normal;font-weight:400;font-display:swap;src:url(__BASE__/fonts/noto-serif-sc-400-subset.woff2) format('woff2');}
+@font-face{font-family:'Noto Serif SC';font-style:normal;font-weight:600;font-display:swap;src:url(__BASE__/fonts/noto-serif-sc-600-subset.woff2) format('woff2');}
+</style>
+</head>
+<body>
+<header class="hd">
+  <a class="brand" href="#/home"><span class="bseal">華</span><span class="bname">华夏纪<small>中国历代王朝</small></span></a>
+  <nav class="nav" id="nav">
+    <a data-b="home" href="#/home">总览</a>
+    <a data-b="dynasties" href="#/dynasties">朝代</a>
+    <a data-b="topics" href="#/topics">专题</a>
+    <a data-b="figures" href="#/figures">人物</a>
+    <a data-b="map" href="#/map">地图</a>
+    <a data-b="search" href="#/search">搜索</a>
+    <a data-b="about" href="#/about">关于</a>
+  </nav>
+  <button class="iconbtn" id="themeBtn" title="深色/浅色" aria-label="切换深色或浅色模式" onclick="toggleTheme()">◐</button>
+  <button class="iconbtn mbtn" id="mBtn" aria-label="菜单" aria-expanded="false" aria-controls="nav" onclick="toggleNav()">☰</button>
+</header>
+
+
+
+<main>
+  <!-- 总览 / Hub -->
+  <section class="page" id="page-home">
+    <div class="hero">
+      <div class="kick">上 下 四 千 年 · 一 览 历 代</div>
+      <h1>中国历代王朝</h1>
+      <p class="sub">从夏商到明清，<b>一条可缩放的时间轴</b>串起所有王朝与并立政权；点击任一朝代，进入统一模板的专页，分十个板块深入了解。</p>
+    </div>
+    <div class="tlsec">
+      <div class="tlbar">
+        <h3>朝代主时间轴</h3>
+        <div class="zoom"><button class="zb" onclick="zoom(-1)">−</button><input type="range" id="zr" min="0.3" max="2" step="0.05" value="0.55" oninput="setZoomT(this.value)"><button class="zb" onclick="zoom(1)">+</button></div>
+        <button id="bandReset" class="bandreset" style="display:none" onclick="focusBand(-1)">✕ 显示全部</button>
+        <span class="tlhint">↔ 滚动 · 悬停或轻点查看 · 点击/再点进入专页（虚线为分裂时期综述）；点击顶部色带聚焦该时期</span>
+      </div>
+      <div class="tlscroll" id="tlscroll"><div class="tlinner" id="tlInner"></div></div>
+    </div>
+    <div class="wrap" style="padding-top:6px">
+      <div class="shead"><span class="sn">门</span><div><h2>四层结构</h2><p>本站的内容架构一览</p></div></div>
+      <div class="cards" style="--accent:#a9842f">
+        <a class="dcard" style="--accent:#9c2b22" href="#/dynasties"><div class="dn">朝代专页</div><div class="dy">单朝代 · 统一模板</div><div class="dd">每个王朝一套：概览·帝系·政治·经济·军事·文化·文艺·民族·人物·名场面。</div></a>
+        <a class="dcard" style="--accent:#a9842f" href="#/topics"><div class="dn">跨朝专题</div><div class="dy">横向 · 贯通古今</div><div class="dd">制度、疆域、思想、文学、科技、丝路……纵向贯通各代，并含同期/承继朝代对照。</div></a>
+        <a class="dcard" style="--accent:#355f78" href="#/figures"><div class="dn">人物总库</div><div class="dy">跨朝 · 可检索</div><div class="dd">聚合各朝人物，按朝代、类别、年代筛选与搜索。</div></a>
+        <a class="dcard" style="--accent:#4e7256" href="#/map"><div class="dn">历史地图</div><div class="dy">都城 · 方位 · 朝代对应</div><div class="dd">历代都城方位示意图，可切换朝代、查看各政权都城与今地对照。</div></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 朝代总览 -->
+  <section class="page" id="page-dynasties"><div class="wrap">
+    <div class="shead"><span class="sn">代</span><div><h2>朝代总览</h2><p>按时期筛选 · 点击进入专页</p></div></div>
+    <div class="controls">
+      <div class="chips" id="fchips">
+        <button class="chip on" data-grp="all">全部</button>
+        <button class="chip" data-grp="ancient">上古三代</button>
+        <button class="chip" data-grp="qinhan">秦汉</button>
+        <button class="chip" data-grp="weijin">魏晋南北朝</button>
+        <button class="chip" data-grp="suitang">隋唐五代</button>
+        <button class="chip" data-grp="songyuan">宋辽金元</button>
+        <button class="chip" data-grp="mingqing">明清</button>
+      </div>
+      <select class="sortsel" id="sortsel" onchange="renderGrid()"><option value="time">按时间</option><option value="dur">按国祚</option></select>
+    </div>
+    <p class="gridlegend">点击任意朝代进入「全史志」详录;十六国、南朝、北朝、五代、十国等时期标为「时期综述」(分国 / 分代概览)。</p><div class="cards" id="dynGrid"></div>
+  </div></section>
+
+  <!-- 单朝代模板 -->
+  <section class="page" id="page-dynasty">
+    <div class="dhero"><div class="dhwrap">
+      <div class="dbar"><button class="backbtn" onclick="goBack()">← 返回</button><div class="crumb" style="margin:0"><a href="#/home">主时间轴</a> ／ <a href="#/dynasties">朝代总览</a> ／ <span id="dynCrumb">朝代</span></div></div>
+      <div class="dtitle"><span class="big" id="dynBig">唐</span><div><span class="full" id="dynFull">唐朝</span> <span class="yy" id="dynYears">618–907</span></div><span class="dtag" id="dynEth">汉</span><span class="dtag" id="dynDetail" style="display:none;background:var(--gold)">全史志</span></div>
+    </div></div>
+    <div class="subnav" id="subnav"></div>
+    <div class="wrap" style="padding-top:22px" id="dynModules"></div>
+  </section>
+
+  <!-- 专题总览 -->
+  <section class="page" id="page-topics"><div class="wrap">
+    <div class="shead"><span class="sn">专</span><div><h2>跨朝代专题</h2><p>横向贯通 · 长时段的脉络</p></div></div>
+    <p class="lead">专题打通朝代壁垒，沿时间轴呈现某一主题的演变——这是体现"全面"的关键一层。点击进入专题模板。</p>
+    <div class="tgrid" id="topicGrid"></div>
+    <div class="shead" style="margin-top:38px"><span class="sn">照</span><div><h2>朝代对照</h2><p>同期并立 · 前后承继 · 盛世横比（对照≠排名）</p></div></div>
+    <p class="lead">朝代相隔数百年、背景迥异，简单并列易流于「排名」。这里只在<b>有意义的语境</b>下对照——同时并立、前后承继、治世横比。点击查看并列对照。</p>
+    <div id="contrastPanel"></div>
+  </div></section>
+
+  <!-- 专题模板 -->
+  <section class="page" id="page-topic"><div class="wrap">
+    <div class="dbar" style="margin-bottom:14px"><button class="backbtn" onclick="goBack()">← 返回</button><div class="crumb" style="margin:0"><a onclick="nav('topics')">专题总览</a></div></div>
+    <div class="shead"><span class="sn" id="topicG">制</span><div><h2 id="topicName">制度演变</h2><p id="topicDesc">官制·科举·赋税·军制的历代沿革</p></div></div>
+    <div id="topicBody"></div>
+  </div></section>
+
+  <!-- 人物库 -->
+  <section class="page" id="page-figures"><div class="wrap">
+    <div class="shead"><span class="sn">人</span><div><h2>人物总库</h2><p>跨朝代 · 按朝代 / 类别 / 年代检索</p></div></div>
+    <input class="inp" id="figQ" placeholder="🔍 搜索人物（姓名 / 身份 / 朝代）" oninput="renderFiguresD()" style="margin-bottom:14px">
+    <div class="chips" id="figEra" style="margin-bottom:9px"></div>
+    <div class="chips" id="figRole" style="margin-bottom:9px"></div>
+    <div class="chips" id="figRate" style="margin-bottom:16px"></div>
+    <div id="figList"></div>
+    <div class="note">本库汇集各朝代表人物，共 <b id="figTotal">—</b> 位；可按时代、身份筛选与关键词搜索，带 ▾ 的卡片点击可展开详传。</div>
+  </div></section>
+
+  <!-- 对照（语境化） -->
+  <section class="page" id="page-contrast"><div class="wrap">
+    <div class="dbar" style="margin-bottom:14px"><button class="backbtn" onclick="goBack()">← 返回</button><div class="crumb" style="margin:0"><a onclick="nav('topics')">专题总览</a></div></div>
+    <div class="shead"><span class="sn">照</span><div><h2 id="ctName">朝代对照</h2><p id="ctDesc"></p></div></div>
+    <div class="note" id="ctNote" style="margin-top:0;margin-bottom:18px"></div>
+    <div class="cmpgrid" id="contrastBody"></div>
+  </div></section>
+
+  <!-- 搜索 -->
+  <section class="page" id="page-search"><div class="wrap">
+    <div class="shead"><span class="sn">索</span><div><h2>全站搜索</h2><p>朝代 · 人物 · 事件 · 年份</p></div></div>
+    <input class="inp" id="q" placeholder="🔍 输入关键词（试试：唐 / 改革 / 开国 / 1127）" oninput="renderSearchD(this.value)" style="margin-bottom:8px">
+    <p class="lead" style="margin-bottom:14px">实时检索<b>朝代 · 人物 · 事件</b>三类条目，空查询时列出全部朝代。</p>
+    <div class="cards" id="searchResults"></div>
+  </div></section>
+
+  <!-- 地图 -->
+  <section class="page" id="page-map"><div class="wrap">
+    <div class="shead"><span class="sn">舆</span><div><h2>历史地图 · 都城方位</h2><p>历代都城在中国的地理分布与朝代对应</p></div></div>
+    <p class="lead" style="margin-bottom:14px">点击下方朝代，查看并高亮其都城（含今所在位置）；并行政权（分裂期）将列出各政权都城。</p>
+    <div class="chips" id="mapChips" style="margin-bottom:14px"></div>
+    <div class="mapwrap"><div id="mapCanvas" class="mapcanvas"></div></div>
+    <div id="mapCaption" class="mapcap"></div>
+  </div></section>
+
+  <!-- 关于 / 方案 -->
+  <section class="page" id="page-about"><div class="wrap">
+    <div class="shead"><span class="sn">纲</span><div><h2>关于本站</h2><p>体例 · 使用指南 · 内容说明</p></div></div>
+    <div class="spec">
+      <h4>本站简介</h4>
+      <p>「华夏纪」是一部自上古三代至清的中国历代王朝通史。以一条贯通四千年的主时间轴串起 23 个独立王朝与 5 个分裂时期，并辅以跨朝专题、人物总库、朝代对照、全站搜索与都城方位图，力求在一处纵览中华文明的兴衰流变。</p>
+      <h4>如何浏览</h4>
+      <ul>
+        <li><b>主时间轴</b>：首页的多轨时间轴会并列同时存在的政权（如三国、南北朝、宋辽夏金）；点击任一朝代或分裂时段，即进入其专页。</li>
+        <li><b>朝代专页</b>：每个王朝一套统一体例，含概览、帝系、政治、经济、军事、文化、文艺、民族、人物、名场面十个板块，顶部子导航可快速跳转。</li>
+        <li><b>跨朝专题</b>：制度、疆域、都城、思想、文学、艺术、科技、民族、丝路、经济等主题纵向贯通各代；并提供同期并立、前后承继、盛世横比三类<b>对照</b>。</li>
+        <li><b>人物 · 搜索 · 地图</b>：人物总库可按时代与身份筛选检索、点击展开详传；搜索贯通朝代、人物与事件；地图以方位示意呈现历代都城。</li>
+      </ul>
+      <h4>体例说明</h4>
+      <ul>
+        <li><b>国势曲线</b>仅为反映各朝兴衰节奏的示意图示，非精确的量化数据。</li>
+        <li><b>分裂时期</b>（十六国、南北朝、五代十国等）亦立专页，依正常体例分设政治·经济·军事·文化·文艺·民族等板块，并以分期时间轴与代表政权呈现其多政权之并立；唯其下各政权不逐一另立专页。</li>
+        <li><b>纪年</b>采用公元纪年，公元前以"前"标注；上古与早期年代多为约数。</li>
+        <li><b>口径细则</b>：「国祚」按迄年−始年之周年计；跨农历岁末的禅代与亡国按公历换算归入次年——如曹魏—西晋之禅让在咸熙二年十二月（公历266年初），本站魏迄、晋始统一记作266年；秦亡（汉元年十月）记作前207年。东周条目以王室纪年（前770–前256）为主，并注「春秋战国时期迄前221」。</li>
+        <li><b>读音</b>：生僻字与易误读处随文注音。其中「恪」字于「陈寅恪」一名从主人之读、注作 què——据沈亚明《陈寅恪自己和至亲三代怎么读“恪”》及吴学昭考订，陈氏家族世代读 què；而「慕容恪」等则仍依通行音读 kè。</li>
+      </ul>
+      <h4>内容与版权</h4>
+      <p>站内文字均为原创撰写或转述，不复制任何受版权保护的作品原文；历史地图为自绘的方位示意，并非精确疆域。夏、商等上古史事年代久远、传说与史实交织，相关内容已据通行认识审慎把握，仅供学习参考。</p>
+      <h4>参校与校订</h4>
+      <p>站内叙述以《吕著中国通史》为主要参校之尺——取其重制度沿革、重社会经济、长于辨正俗说之长，用以校核并补充各朝专页与跨朝专题；又以钱穆《国史大纲》、张荫麟《中国史纲》、许倬云《万古江河》及今日学界的通行认识互相参证。校订持几条自我约束：</p>
+      <ul>
+        <li><b>重流变与因果</b>：制度与社会的叙述力求讲清“如何变、为何变”，而非罗列年代与官名。如赋役由“税丁”到“税地”、由实物力役到货币的长程主线，府兵系于均田、均田坏而改募兵的因果，均循吕著之重沿革而补足。</li>
+        <li><b>纠常见误区</b>：对易被脸谱化或夸大的史事审慎措辞——如焚书坑儒的范围与规模（焚书有特定范围、所坑多方士，规模常被后世放大）、“独尊儒术”的实际过程（立五经博士、罢诸子博士，而汉治“霸王道杂之”、外儒内法）、科举的起源与定型（隋废中正以试取士，至唐宋方臻完备）等。</li>
+        <li><b>存而不断</b>：凡学界尚有分歧者，并陈各说、标注“尚有争议”而不作定论，如夏的信史性与“禅让”性质、井田的实际形态、王莽改制的功过评价、“封建”一词的古今异义等。</li>
+        <li><b>转述不抄</b>：凡引前贤之见，均为原创转述并注明“吕思勉认为”“钱穆指出”之类，绝不复制其著作原文。</li>
+      </ul>
+      <h4>延伸阅读</h4>
+      <p>若想深入，下列通史与名著可作进一步的阅读门径（仅为推荐，排名不分先后）：</p>
+      <ul>
+        <li>钱穆《国史大纲》、吕思勉《中国通史》、张荫麟《中国史纲》——简明而见识深远的通史入门。</li>
+        <li>许倬云《万古江河》、黄仁宇《中国大历史》《万历十五年》——以大视野与个案，别开生面地讲中国史。</li>
+        <li>瞿同祖《中国法律与中国社会》、费孝通《乡土中国》——透视传统社会的法律、家族与基层结构。</li>
+        <li>葛兆光《中国思想史》、冯友兰《中国哲学简史》——梳理思想与哲学的长程脉络。</li>
+        <li>费正清主编《剑桥中国史》、史景迁《追寻现代中国》——海外汉学的经典视角。</li>
+      </ul>
+    </div>
+    <div class="note">本站为公益性的历史科普读物，内容如有疏漏，欢迎指正与交流。</div>
+  </div></section>
+</main>
+
+<footer class="ft">
+  <div class="fn"><a href="#/home">总览</a><a href="#/dynasties">朝代</a><a href="#/topics">专题</a><a href="#/figures">人物</a><a href="#/map">地图</a><a href="#/search">搜索</a><a href="#/about">关于</a></div>
+  <div class="fm">· 華夏 ·</div>
+  <p>华夏纪 · 中国历代王朝　|　自上古三代至清的中华通史</p>
+</footer>
+
+<button id="fabBack" class="fab-back" onclick="goBack()" title="返回" aria-label="返回">←</button>
+
+<div class="tltip" id="tltip"></div>
+
+<div class="evmodal" id="evtableModal" role="dialog" aria-modal="true" aria-labelledby="evtableTitle" onclick="if(event.target===this)evHideTable()"><div class="evmodal-in"><div class="evmodal-hd"><b id="evtableTitle">大事年表</b><button class="evmodal-x" aria-label="关闭" onclick="evHideTable()">✕</button></div><div class="evmodal-tools" id="evtableTools"></div><div class="evmodal-body" id="evtableBody"></div></div></div>
+<script>
+/* 体积说明：本站刻意保持「单文件、离线可用」。若需线上部署减重：
+   1) 将 DETAIL / COMPO / TOPIC_DATA / CN_PROV 拆为独立 JSON，按路由懒加载（首包可减 60%+）；
+   2) 服务端开启 brotli/gzip（本文件文本压缩率约 4:1）；
+   3) 字体已改为非阻塞加载，亦可自托管 Noto Serif SC 子集以兼容无法访问 Google Fonts 的网络。 */
+/* ========== 数据 ========== */
+
+
+
+
+
+
+
+/* ========== 工具 ========== */
+function fy(y){return y<0?'前'+(-y):y;}
+function fmtYear(y){return y<0?'前'+(-y):y===1?'公元元年':String(y);}
+function ys(d){return d.yslabel||(fy(d.s)+'–'+fy(d.e));}
+function durTxt(d){return d.durlabel||('约'+dur(d)+'年');}
+function dur(d){return d.s<0&&d.e>0?d.e-d.s-1:d.e-d.s;}
+
+/* ========== 主时间轴 ========== */
+const MINY=-2150,MAXY=1925,PAD=26,BARH=34,LANEGAP=22,TOPRES=44;
+
+let ppx=0.55,NLANES=1,bandFocus=null;
+function assignLanes(){
+  const sorted=[...DY].sort((a,b)=>a.s-b.s);const laneEnd=[];
+  sorted.forEach(it=>{
+    const order=[it.pref,0,1,2,3,4,5].filter((v,i,a)=>a.indexOf(v)===i);
+    let placed=-1;
+    for(const l of order){if(laneEnd[l]===undefined||laneEnd[l]<=it.s){placed=l;break;}}
+    if(placed===-1)placed=laneEnd.length;
+    laneEnd[placed]=it.e;it.lane=placed;
+  });
+  NLANES=laneEnd.length;
+}
+function xpos(y){return PAD+(y-MINY)*ppx;}
+function renderTimeline(){
+  const inner=document.getElementById('tlInner');
+  const W=PAD*2+(MAXY-MINY)*ppx, lanesH=TOPRES+NLANES*(BARH+LANEGAP);
+  inner.style.width=W+'px';
+  let h='<div class="tllanes" style="height:'+lanesH+'px">';
+  BANDS.forEach((b,bi)=>{const bl=xpos(b[0]),bw=(b[1]-b[0])*ppx;const al=bandFocus===null?'12':(bandFocus===bi?'30':'08');h+='<div class="tlband'+(bandFocus===bi?' on':'')+'" onclick="focusBand('+bi+')" style="left:'+bl.toFixed(1)+'px;width:'+bw.toFixed(1)+'px;top:24px;height:'+(lanesH-24)+'px;background:'+b[3]+al+'"></div><div class="tlbandlab'+(bandFocus===bi?' on':'')+'" tabindex="0" role="button" aria-label="聚焦时期：'+b[2]+'" onclick="focusBand('+bi+')" style="left:'+(bl+5).toFixed(1)+'px;color:'+b[3]+'">'+b[2]+'</div>';});
+  h+='<div class="zeroline" style="left:'+xpos(0).toFixed(1)+'px;height:'+lanesH+'px"></div>';
+  DY.forEach(d=>{
+    const l=xpos(d.s),w=Math.max((d.e-d.s)*ppx,3),top=TOPRES+d.lane*(BARH+LANEGAP);
+    const disp=d.sn||d.name;
+    const cjk=(disp.match(/[\u4e00-\u9fa5]/g)||[]).length;
+    const inside=w>=cjk*11+5;
+    const dim=(bandFocus===null||(d.s<BANDS[bandFocus][1]&&d.e>BANDS[bandFocus][0]))?'':' dim';
+    h+='<div class="bar'+(d.sub?' period':'')+dim+'" data-id="'+d.id+'" tabindex="0" role="button" aria-label="'+d.full+'　'+ys(d)+(d.sub?'，含 '+d.sub.length+' 个政权':'')+'" style="left:'+l.toFixed(1)+'px;width:'+w.toFixed(1)+'px;top:'+top+'px;background:'+d.c+'">'+(inside?disp:'')+'</div>';
+    const tiny=ppx<0.42;
+    const al=inside?'<span class="du">'+dur(d)+'年</span>':(tiny?'<b>'+disp+'</b>':'<b>'+disp+'</b><span class="du">'+dur(d)+'年</span>');
+    h+='<div class="alab'+dim+'" data-id="'+d.id+'" tabindex="0" role="button" aria-label="'+d.full+'　'+ys(d)+'" style="left:'+(l+w/2).toFixed(1)+'px;top:'+(top-16)+'px">'+al+'</div>';
+  });
+  h+='</div><div class="tlaxis" style="width:'+W+'px">';
+  [-2000,-1500,-1000,-500,1,500,1000,1500,1900].forEach(t=>{h+='<span class="tick" style="left:'+xpos(t).toFixed(1)+'px">'+fmtYear(t)+'</span>';});
+  h+='</div>';
+  inner.innerHTML=h;
+}
+function setZoom(v){const sc=document.getElementById('tlscroll');const vw=sc?sc.clientWidth:0;const cYr=sc?MINY+(sc.scrollLeft+vw/2-PAD)/ppx:0;ppx=parseFloat(v);document.getElementById('zr').value=v;renderTimeline();if(sc&&vw)sc.scrollLeft=Math.max(0,xpos(cYr)-vw/2);/* 缩放围绕视口中心年份锚定，避免画面漂移 */}
+let _zq=null,_zraf=0;
+function setZoomT(v){_zq=v;if(_zraf)return;_zraf=(typeof requestAnimationFrame!=='undefined'?requestAnimationFrame:setTimeout)(function(){_zraf=0;setZoom(_zq);});}
+function zoom(dir){let v=Math.min(2,Math.max(0.3,ppx+dir*0.12));setZoom(v.toFixed(2));}
+function focusBand(i){bandFocus=(i<0||bandFocus===i)?null:i;renderTimeline();const rb=document.getElementById('bandReset');if(rb){if(bandFocus===null){rb.style.display='none';}else{rb.style.display='';rb.textContent='✕ 退出「'+BANDS[bandFocus][2]+'」';}}}
+// tooltip + click（事件委托）：桌面悬停即看；触屏首次轻点显示详情、再次轻点进入；键盘 Enter/Space 等同点击
+(function(){
+  const tip=document.getElementById('tltip');
+  const COARSE=(typeof matchMedia!=='undefined'&&matchMedia('(pointer:coarse)').matches)||(typeof window!=='undefined'&&'ontouchstart' in window);
+  let tipFor=null;
+  function fillTip(d){tip.innerHTML='<b>'+d.full+'</b> &nbsp;<i>'+ys(d)+'</i><br>开国：'+d.founder+'　都城：'+d.cap+'<br>民族：'+d.eth+'　国祚'+durTxt(d);}
+  function placeTip(cx,cy){let x=cx+14,y=cy+16;if(x+250>innerWidth)x=cx-250;if(x<4)x=4;const th=tip.offsetHeight||80;if(y+th>innerHeight-4)y=cy-th-10;if(y<4)y=4;tip.style.left=x+'px';tip.style.top=y+'px';}
+  document.getElementById('tlInner').addEventListener('mousemove',e=>{
+    const b=e.target.closest('.bar,.alab');
+    if(!b){tip.style.opacity=0;return;}
+    fillTip(DY.find(x=>x.id===b.dataset.id));
+    tip.style.opacity=1;placeTip(e.clientX,e.clientY);
+  });
+  document.getElementById('tlInner').addEventListener('mouseleave',()=>{tip.style.opacity=0;tipFor=null;});
+  const _tsc=document.getElementById('tlscroll');
+  if(_tsc)_tsc.addEventListener('scroll',()=>{tip.style.opacity=0;tipFor=null;},{passive:true});
+  function tlActivate(b){tip.style.opacity=0;tipFor=null;nav('dynasty/'+b.dataset.id);}
+  document.getElementById('tlInner').addEventListener('click',e=>{
+    const b=e.target.closest('.bar,.alab');if(!b){tip.style.opacity=0;tipFor=null;return;}
+    if(COARSE&&tipFor!==b.dataset.id){fillTip(DY.find(x=>x.id===b.dataset.id));tip.style.opacity=1;placeTip(e.clientX,e.clientY);tipFor=b.dataset.id;return;}
+    tlActivate(b);
+  });
+  document.getElementById('tlInner').addEventListener('keydown',e=>{
+    if(e.key!=='Enter'&&e.key!==' ')return;
+    const b=e.target.closest('.bar,.alab,.tlbandlab');if(!b)return;
+    e.preventDefault();
+    if(b.classList.contains('tlbandlab'))b.click();else tlActivate(b);
+  });
+  if(COARSE)document.addEventListener('click',e=>{if(!e.target.closest('#tlInner')){tip.style.opacity=0;tipFor=null;}},{passive:true});
+})();
+
+/* ========== 时段细分时间轴 ========== */
+function laneAssign(items){const a=[...items].sort((x,y)=>x.s-y.s);const le=[];a.forEach(it=>{let p=-1;for(let i=0;i<le.length;i++){if(le[i]<=it.s){p=i;break;}}if(p<0)p=le.length;le[p]=it.e;it.lane=p;});return Math.max(1,le.length);}
+
+
+/* ========== 朝代总览 grid ========== */
+let curFilter='all';
+function renderGrid(){
+  let list=DY.filter(d=>curFilter==='all'||d.grp===curFilter);
+  const sort=document.getElementById('sortsel').value;
+  if(sort==='dur')list=[...list].sort((a,b)=>dur(b)-dur(a)); else list=[...list].sort((a,b)=>a.s-b.s);
+  document.getElementById('dynGrid').innerHTML=py(list.map(d=>
+    '<a class="dcard" style="--accent:'+d.c+'" href="#/dynasty/'+d.id+'"><div class="dn">'+d.name+'</div><div class="dy">'+ys(d)+'　国祚'+durTxt(d)+'</div><div class="dm">都城 '+d.cap+'　·　开国 '+d.founder+'　·　'+d.eth+'</div><div class="dd">'+d.note+'</div></a>').join(''));
+}
+document.getElementById('fchips').addEventListener('click',e=>{const b=e.target.closest('.chip');if(!b)return;document.querySelectorAll('#fchips .chip').forEach(c=>c.classList.remove('on'));b.classList.add('on');curFilter=b.dataset.grp;renderGrid();});
+
+/* ========== 单朝代模板 ========== */
+function skcards(n,lbl){let s='';for(let i=0;i<n;i++)s+='<div class="skcard"><div class="lbl">'+lbl+'</div><div class="sk w70"></div><div class="sk w85"></div><div class="sk w55"></div></div>';return s;}
+/* ========== 朝代详细内容（明朝全史志） ========== */
+
+
+const CATCOL={政:'#3a567a',军:'#7a3b3b',文:'#4e7256',外:'#a9842f'};
+
+function cblocks(a,pair){var g='<div class="cgrid">'+a.map(x=>'<div class="cblock"><h5>'+x[0]+'</h5><p>'+x[1]+'</p></div>').join('')+'</div>';return (pair&&pair[0])?('<p class="csum csum-in">'+pair[0]+'</p>'+g+(pair[1]?'<p class="csum csum-out"><b>小结　</b>'+pair[1]+'</p>':'')):g;}
+function sceneCards(a){return '<div class="cgrid">'+a.map((x,i)=>'<div class="cblock" id="scene-'+i+'"><h5>'+x[0]+'</h5><p>'+x[1]+'</p></div>').join('')+'</div>';}
+let EVCUR=[],EVSEL=0,EVTCAT='all';
+function evMag(e){if(typeof e[4]==='number')return e[4];return /建[国都宋唐汉明清元]|开国|代[唐周汉魏隋陈梁]|统一|灭亡|亡国|称帝|革命|之变|之乱|盛世|起义|北伐|变法|靖康|甲申|安史|鸦片|辛亥/.test(e[1])?3:2;}
+function evDetailHTML(e,idx,total){if(!e)return '点按曲线上的大事节点，查看该事件详情。';const c=e[3]||(typeof EVCAT!=='undefined'&&EVCAT[e[1]])||'政';const nav=(total&&total>1)?'<div class="evnav"><button class="evnavb" onclick="evNav(-1)"'+(idx<=0?' disabled':'')+'>‹ 前一件</button><span class="evnavc">'+(idx+1)+' / '+total+'</span><button class="evnavb" onclick="evNav(1)"'+(idx>=total-1?' disabled':'')+'>后一件 ›</button></div>':'';return '<span class="evy">'+e[0]+'</span> <b class="evttl">'+e[1]+'</b> <span class="evtag" style="background:'+CATCOL[c]+'">'+CATNAME[c]+'</span><p>'+e[2]+'</p>'+nav;}
+function evControls(evs){if(!evs||!evs.length)return '';EVCUR=evs;EVSEL=0;EVFCAT='all';const cats=[['all','全部'],['政','政治'],['军','军事'],['文','文化'],['外','对外']];const chips=cats.map((c,i)=>'<button class="chip'+(i?'':' on')+'" onclick="evFilter(this,\''+c[0]+'\')">'+c[1]+'</button>').join('');return '<div class="evbar"><div class="chips fchipsrow">'+chips+'</div><button class="evtablebtn" onclick="evShowTable()">大事年表 ▦</button></div><div class="evdetail" id="evdetail">'+evDetailHTML(evs[0],0,evs.length)+'</div>';}
+function evShowTable(){var b=document.getElementById('evtableBody');if(!b)return;var tools=document.getElementById('evtableTools');if(tools){var cats=[['all','全部'],['政','政治'],['军','军事'],['文','文化'],['外','对外']];tools.innerHTML='<div class="evtchips">'+cats.map(function(c,i){return '<button class="chip'+(i?'':' on')+'" onclick="evTblCat(this,\''+c[0]+'\')">'+c[1]+'</button>';}).join('')+'</div><input class="evtsearch" id="evtableSearch" type="text" aria-label="搜索大事或说明" placeholder="搜索大事或说明…" oninput="evTblFilter()">';}var rows=(EVCUR||[]).map(function(e){var c=e[3]||(typeof EVCAT!=='undefined'&&EVCAT[e[1]])||'政';var txt=esc(e[0]+' '+e[1]+' '+e[2]);return '<tr class="evtr" data-cat="'+c+'" data-text="'+txt+'"><td class="evty">'+e[0]+'</td><td><span class="evtag" style="background:'+CATCOL[c]+'">'+CATNAME[c]+'</span></td><td class="evtt">'+e[1]+'</td><td>'+e[2]+'</td></tr>';}).join('');b.innerHTML=py('<table class="evtable"><thead><tr><th>年份</th><th>类别</th><th>大事</th><th>说明</th></tr></thead><tbody>'+rows+'</tbody></table><div class="evtempty" id="evtableEmpty" style="display:none">无匹配的大事</div>');EVTCAT='all';var m=document.getElementById('evtableModal');if(m){m._restoreFocus=document.activeElement;m.classList.add('open');document.body.style.overflow='hidden';var x=m.querySelector('.evmodal-x');if(x)x.focus();}}
+function evHideTable(){var m=document.getElementById('evtableModal');if(m){m.classList.remove('open');document.body.style.overflow='';if(m._restoreFocus&&m._restoreFocus.focus){try{m._restoreFocus.focus();}catch(e){}}m._restoreFocus=null;}}
+function evTblCat(btn,cat){var p=btn.parentElement;p.querySelectorAll('.chip').forEach(function(c){c.classList.remove('on');});btn.classList.add('on');EVTCAT=cat;evTblFilter();}
+function evTblFilter(){var cat=EVTCAT||'all';var si=document.getElementById('evtableSearch');var q=si?si.value.trim():'';var rows=document.querySelectorAll('#evtableBody .evtr'),shown=0;rows.forEach(function(r){var okc=(cat==='all'||r.getAttribute('data-cat')===cat);var okq=(!q||(r.getAttribute('data-text')||'').indexOf(q)>=0);var ok=okc&&okq;r.style.display=ok?'':'none';if(ok)shown++;});var emp=document.getElementById('evtableEmpty');if(emp)emp.style.display=shown?'none':'block';}
+function evPick(i){const e=EVCUR[i];if(!e)return;EVSEL=i;document.querySelectorAll('#m-ov .evnode2').forEach(g=>g.classList.toggle('sel',+g.dataset.i===i));const box=document.getElementById('evdetail');if(box){box.innerHTML=py(evDetailHTML(e,i,EVCUR.length));box.classList.remove('flash');void box.offsetWidth;box.classList.add('flash');}}
+function evCat(e){return e[3]||(typeof EVCAT!=='undefined'&&EVCAT[e[1]])||'政';}
+function evNav(dir){if(!EVCUR||!EVCUR.length)return;var n=(EVSEL||0);for(var step=0;step<EVCUR.length;step++){n+=dir;if(n<0||n>EVCUR.length-1)return;if(EVFCAT==='all'||evCat(EVCUR[n])===EVFCAT){if(n!==EVSEL)evPick(n);return;}}}
+document.addEventListener('keydown',function(ev){var modal=document.getElementById('evtableModal');if(ev.key==='Escape'&&modal&&modal.classList.contains('open')){evHideTable();return;}if(ev.key==='Tab'&&modal&&modal.classList.contains('open')){var f=modal.querySelectorAll('button,input,[tabindex="0"]');if(f.length){var first=f[0],last=f[f.length-1];if(ev.shiftKey&&document.activeElement===first){ev.preventDefault();last.focus();}else if(!ev.shiftKey&&document.activeElement===last){ev.preventDefault();first.focus();}else if(!modal.contains(document.activeElement)){ev.preventDefault();first.focus();}}return;}if((ev.key==='ArrowLeft'||ev.key==='ArrowRight')&&(!modal||!modal.classList.contains('open'))){var ae=document.activeElement;if(ae&&(ae.tagName==='INPUT'||ae.tagName==='TEXTAREA'||ae.tagName==='SELECT'))return;var det=document.getElementById('evdetail');if(det&&det.offsetParent!==null){evNav(ev.key==='ArrowLeft'?-1:1);ev.preventDefault();}}});
+let EVFCAT='all';
+function evFilter(btn,cat){btn.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));btn.classList.add('on');EVFCAT=cat;const sv=document.querySelector('#m-ov .csvg');if(sv)sv.setAttribute('data-filter',cat);if(cat!=='all'&&EVCUR&&EVCUR.length&&evCat(EVCUR[EVSEL]||{})!==cat){for(var i=0;i<EVCUR.length;i++){if(evCat(EVCUR[i])===cat){evPick(i);break;}}}}
+
+function radarSVG(r){var cx=48,cy=48,mx=34,a=[-1.5708,0,1.5708,3.1416];function P(i,rad){return (cx+rad*Math.cos(a[i])).toFixed(1)+','+(cy+rad*Math.sin(a[i])).toFixed(1);}var grid='';[mx,mx*0.6,mx*0.3].forEach(function(g){grid+='<polygon points="'+[0,1,2,3].map(function(i){return P(i,g);}).join(' ')+'" class="rdgrid"/>';});var ax='';[0,1,2,3].forEach(function(i){var p=P(i,mx).split(',');ax+='<line x1="48" y1="48" x2="'+p[0]+'" y2="'+p[1]+'" class="rdgrid"/>';});var poly='<polygon points="'+[0,1,2,3].map(function(i){return P(i,r[i]/5*mx);}).join(' ')+'" class="rdfill"/>';var dot='';[0,1,2,3].forEach(function(i){var p=P(i,r[i]/5*mx).split(',');dot+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2" class="rddot"/>';});var lab='<text x="48" y="11" class="rdlab">才</text><text x="89" y="51" class="rdlab">德</text><text x="48" y="94" class="rdlab">识</text><text x="7" y="51" class="rdlab">度</text>';return '<div class="frad"><svg viewBox="0 0 96 96" style="width:82px;height:82px">'+grid+ax+poly+dot+lab+'</svg></div>';}
+function rateHTML(r){if(!r)return '';const dim=['才','德','识','度'];return '<div class="fratewrap" title="许倬云《从历史看人物》式评断（编者酌定，仅供参照）">'+radarSVG(r)+'<div class="frate">'+dim.map((k,i)=>'<span class="frcell"><b>'+k+'</b>'+[1,2,3,4,5].map(v=>'<i class="fdot'+(v<=r[i]?' on':'')+'"></i>').join('')+'</span>').join('')+'</div></div>';}
+function figCards(a,bios){
+  const cats=[['all','全部'],['jun','帝王'],['chen','文臣'],['wu','武将'],['siwen','思想文艺'],['kexi','科技西学'],['hou','后妃·名媛']];
+  const chips='<div class="chips fchipsrow">'+cats.map((c,i)=>'<button class="chip'+(i?'':' on')+'" onclick="figFilter(this,\''+c[0]+'\')">'+c[1]+'</button>').join('')+'</div>';
+  const grid='<div class="figmini-grid">'+a.map(p=>{const g=p[4]||FIGGRP[p[0]]||'chen';const bio=bios&&bios[p[0]];return '<div class="figmini'+(bio?' expandable':'')+'" data-grp="'+g+'" data-name="'+esc(p[0])+'"'+(bio?' onclick="this.classList.toggle(\'open\')" tabindex="0" role="button"':'')+'><div class="fmh"><span class="fmn">'+p[0]+'</span><span class="fmr">'+p[1]+'</span><span class="fmd">'+p[2]+'</span>'+(bio?'<span class="figcaret">▾</span>':'')+'</div><p>'+p[3]+'</p>'+(bio?'<div class="figbio">'+rateHTML(FIGRATE[p[0]]||null)+bio+'</div>':'')+'</div>';}).join('')+'</div>';
+  return chips+grid;
+}
+function figFilter(btn,g){btn.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('#m-fig .figmini').forEach(c=>{c.style.display=(g==='all'||c.dataset.grp===g)?'':'none';});}
+const RAREPY={'姒':'sì','浞':'zhuó','羿':'yì','疍':'dàn','劓':'yì','剕':'fèi','刖':'yuè','髡':'kūn','笞':'chī','榷':'què','酤':'gū','矾':'fán','黍':'shǔ','稷':'jì','幞':'fú','褙':'bèi','绫':'líng','缣':'jiān','楮':'chǔ','鲧':'gǔn','稹':'zhěn','彟':'yuē','昞':'bǐng','偁':'chēng','瓐':'lú','譞':'xuān','沣':'fēng','韫':'yùn','杬':'yuán','墉':'yōng','疴':'kē','澹':'dàn','筠':'yún','刿':'guì','嵘':'róng','㬎':'xiǎn','䜣':'xīn','䶮':'yǎn','懽':'huān','昚':'shèn','炅':'jiǒng','锜':'qí','繻':'xū','摛':'chī','儁':'jùn','匄':'gài','筦':'guǎn','隽':'juàn','矱':'yuē','奲':'duǒ','樘':'táng','坖':'jì','钰':'yù','煦':'xù','溥':'pǔ','哙':'kuài','瓘':'guàn','琨':'kūn','侃':'kǎn','塽':'shuǎng','栻':'shì','昇':'shēng','烨':'yè','旻':'mín','昉':'fǎng','祏':'shí','翊':'yì','麟':'lín','峤':'qiáo','仝':'tóng','顗':'yǐ','漼':'cuǐ','儇':'xuān','烜':'xuǎn','胤':'yìn','瞻':'zhān','炽':'chì','虢':'guó','淄':'zī','黔':'qián','皋':'gāo','庾':'yǔ','侬':'nóng','圜':'huán','阡':'qiān','扪':'mén','虱':'shī','饬':'chì','遴':'lín','贽':'zhì','绶':'shòu','猖':'chāng','獗':'jué','诤':'zhèng','訾':'zī','燮':'xiè','耧':'lóu','斛':'hú','佚':'yì','溘':'kè','讷':'nè','碓':'duì','巳':'sì','蹶':'jué','噤':'jìn','绌':'chù','忤':'wǔ','囿':'yòu','曷':'hé','郤':'xì','禳':'ráng','踵':'zhǒng','攫':'jué','擢':'zhuó','谲':'jué','诳':'kuáng','臾':'yú','檄':'xí','瞑':'míng','厩':'jiù','缙':'jìn','旌':'jīng','惮':'dàn','祇':'qí','薮':'sǒu','骧':'xiāng','壑':'hè','胪':'lú','坞':'wù','瞩':'zhǔ','簪':'zān','阱':'jǐng','亘':'gèn','痼':'gù','俎':'zǔ','盂':'yú','臼':'jiù','匕':'bǐ','箓':'lù','诰':'gào','舫':'fǎng','曜':'yào','綝':'chēn','伽':'qié','绮':'qǐ','猷':'yóu','僖':'xī','迥':'jiǒng','铨':'quán','遒':'qiú','闾':'lǘ','宸':'chén','鹞':'yào','濛':'méng','祚':'zuò','逖':'tì','罄':'qìng','楫':'jí','帷':'wéi','幄':'wò','瓮':'wèng','曌':'zhào','禛':'zhēn','颙':'yóng','琰':'yǎn','詝':'zhǔ','湉':'tián','佶':'jí','惇':'dūn','禥':'qí','昰':'shì','昺':'bǐng','炆':'wén','熜':'cōng','堉':'yù','昀':'yún','晟':'shèng','叡':'ruì','彧':'yù','诩':'xǔ','歆':'xīn','琬':'wǎn','谡':'sù','祎':'yī','郃':'hé','愍':'mǐn','悝':'kuī','镒':'yì','亶':'dǎn','珣':'xún','苌':'cháng','皝':'huàng','暠':'gǎo','俶':'chù','璟':'jǐng','頫':'fǔ','镠':'liú','昶':'chǎng','嵬':'wéi','睍':'xiàn','湦':'shēng','骜':'ào','衎':'kàn','濞':'bì','炟':'dá','柷':'zhù','劭':'shào','侂':'tuō','胄':'zhòu','瓒':'zàn','杲':'gǎo','昪':'biàn','苻':'fú','跋':'bá','嬴':'yíng','勰':'xié','羯':'jié','氐':'dī','羌':'qiāng','厥':'jué','纥':'hé','玁':'xiǎn','狁':'yǔn','兀':'wù','怛':'dá','鄯':'shàn','邺':'yè','郢':'yǐng','邲':'bì','崤':'xiáo','渑':'miǎn','郾':'yǎn','鄱':'pó','睢':'suī','骊':'lí','潼':'tóng','蓟':'jì','邙':'máng','亳':'bó','羑':'yǒu','鄩':'xún','琊':'yá','矶':'jī','儋':'dān','峄':'yì','犍':'jiān','颍':'yǐng','泾':'jīng','汨':'mì','邯':'hán','郸':'dān','邹':'zōu','鄢':'yān','邢':'xíng','陂':'bēi','坂':'bǎn','隍':'huáng','郦':'lì','缜':'zhěn','晔':'yè','邕':'yōng','瞿':'qú','荫':'yìn','蠡':'lǐ','蔺':'lìn','雎':'jū','轲':'kē','聃':'dān','翟':'dí','膑':'bìn','嵇':'jī','阮':'ruǎn','谯':'qiáo','晁':'cháo','奭':'shì','颎':'jiǒng','芾':'fú','勖':'xù','焘':'tāo','顼':'xū','璘':'lín','谥':'shì','觞':'shāng','旄':'máo','釜':'fǔ','阙':'què','廪':'lǐn','衮':'gǔn','砥':'dǐ','觐':'jìn','槊':'shuò','阋':'xì','谒':'yè','庖':'páo','肱':'gōng','耒':'lěi','耜':'sì','籴':'dí','缶':'fǒu','磬':'qìng','磔':'zhé','鬻':'yù','笳':'jiā','罹':'lí','飨':'xiǎng','轸':'zhěn','赧':'nǎn','篑':'kuì','礴':'bó','捭':'bǎi','蹙':'cù','黩':'dú','燹':'xiǎn','唳':'lì','箴':'zhēn','谄':'chǎn','谙':'ān','掣':'chè','湎':'miǎn','圩':'wéi','涅':'niè','跻':'jī','纾':'shū','甓':'pì','觊':'jì','觎':'yú','颢':'hào','猝':'cù','铩':'shā','隳':'huī','缄':'jiān','怆':'chuàng','韬':'tāo','帙':'zhì','僭':'jiàn','侪':'chái','瑕':'xiá','舛':'chuǎn','夤':'yín','陉':'xíng','啮':'niè','嶂':'zhàng','飓':'jù','缛':'rù','绛':'jiàng','夔':'kuí','臬':'niè','醺':'xūn','洫':'xù','兮':'xī','妺':'mò','妲':'dá','鸠':'jiū','臧':'zāng','牟':'móu','邈':'miǎo','髦':'máo','戾':'lì','邃':'suì','弭':'mǐ','斐':'fěi','伶':'líng','擘':'bò','佗':'tuó','稽':'jī','谪':'zhé','霓':'ní','蕊':'ruǐ','牡':'mǔ','噬':'shì','俪':'lì','诂':'gǔ','衅':'xìn','雉':'zhì','铢':'zhū','戛':'jiá','愎':'bì','劾':'hé','偃':'yǎn','麓':'lù','湮':'yān','璀':'cuǐ','璨':'càn','翦':'jiǎn','醮':'jiào','鸳':'yuān','鸯':'yāng','釉':'yòu','陲':'chuí','琵':'pí','琶':'pá','脍':'kuài','炙':'zhì','珐':'fà','捩':'liè','涟':'lián','漪':'yī','饕':'tāo','餮':'tiè','苜':'mù','蓿':'xu','竺':'zhú','帼':'guó','迦':'jiā','蛊':'gǔ','刎':'wěn','殁':'mò','矢':'shǐ','斡':'wò','腴':'yú','嬗':'shàn','繇':'yáo','膏':'gāo','谧':'mì','倬':'zhuō',};
+const RARERE=new RegExp('['+Object.keys(RAREPY).join('')+']','g');
+const POLYPY={'傅说':['说','yuè'],'姬阆':['阆','láng'],'陈寅恪':['恪','què'],'慕容恪':['恪','kè']};function polyRep(tx,ruby){for(var w in POLYPY){if(tx.indexOf(w)<0)continue;var ch=POLYPY[w][0],rd=POLYPY[w][1];var ann=ruby?('<ruby>'+ch+'<rt>'+rd+'</rt></ruby>'):(ch+'<span class="py">('+rd+')</span>');tx=tx.split(w).join(w.replace(ch,ann));}return tx;}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');}
+function jsq(s){return String(s).replace(/\\/g,'\\\\').replace(/'/g,"\\'").replace(/"/g,'&quot;');}
+function py(h){var seen={};return String(h).replace(/(<svg[\s\S]*?<\/svg>)|(<!--RL-->[\s\S]*?<!--\/RL-->)|(<[^>]*>)|([^<]+)/g,function(m,sv,rb,tg,tx){if(sv)return sv;if(rb)return rb;if(tg)return tg;return polyRep(tx,false).replace(RARERE,function(c){if(seen[c])return c;seen[c]=1;return c+'<span class="py">('+RAREPY[c]+')</span>';});});}
+function pyRuby(h){var seen={};return String(h).replace(/(<svg[\s\S]*?<\/svg>)|(<[^>]*>)|([^<]+)/g,function(m,sv,tg,tx){if(sv)return sv;if(tg)return tg;return polyRep(tx,true).replace(RARERE,function(c){if(seen[c])return c;seen[c]=1;return '<ruby>'+c+'<rt>'+RAREPY[c]+'</rt></ruby>';});});}
+function storyList(note,a,lk){return '<div class="storynote">'+note+'</div><div class="storylist">'+a.map((s,i)=>{const L=(lk&&lk[i])||[null,null];let links='';if(L[0]!=null||L[1]){links='<div class="storylinks">';if(L[0]!=null)links+='<a role="button" tabindex="0" onclick="gotoScene('+L[0]+')">▸ 名场面</a>';if(L[1])links+='<a role="button" tabindex="0" onclick="gotoFig(\''+jsq(L[1])+'\')">▸ 人物 · '+L[1]+'</a>';links+='</div>';}return '<div class="storyc"><div class="storyhd"><span class="storyn">'+(i+1)+'</span><span class="storyt">'+s[0]+'</span></div><p>'+s[1]+'</p>'+links+'</div>';}).join('')+'</div>';}
+function gotoScene(i){document.querySelectorAll('#m-scene .cblock').forEach(c=>c.classList.remove('hl'));const el=document.getElementById('scene-'+i);if(el){el.classList.add('hl');el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function gotoFig(name){const box=document.getElementById('m-fig')||document.getElementById('m-figs');if(!box)return;box.querySelectorAll('.chip').forEach((c,i)=>c.classList.toggle('on',i===0));box.querySelectorAll('.figmini').forEach(c=>{c.style.display='';c.classList.remove('hl');});const el=box.querySelector('.figmini[data-name="'+name+'"]');if(el){el.classList.add('hl');if(el.classList.contains('expandable'))el.classList.add('open');el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function reignBar(segs){return '<div class="reignbar">'+segs.map(s=>'<button class="rseg" style="flex:'+(s[2]-s[1])+'" data-idx="'+s[3]+'" title="'+s[0]+'（'+fy(s[1])+'–'+fy(s[2])+'）" onclick="reignClick('+s[3]+')"><span>'+s[0]+'</span></button>').join('')+'</div>';}
+function reignClick(i){document.querySelectorAll('#m-rulers .rulerc').forEach(c=>c.classList.remove('hl'));document.querySelectorAll('#m-rulers .rseg').forEach(s=>s.classList.toggle('on',s.dataset.idx==i));const el=document.getElementById('ruler-'+i);if(el){el.classList.add('hl');el.scrollIntoView({behavior:'smooth',block:'center'});}}
+function rulerList(a,segs){
+  const dur={};(segs||[]).forEach(s=>{dur[s[3]]=(dur[s[3]]||0)+(s[2]-s[1]);});
+  return '<!--RL-->'+pyRuby('<div class="rulerlist">'+a.map((r,i)=>'<div class="rulerc" id="ruler-'+i+'"><div class="rh"><div class="rhl"><span class="rt">'+r[0]+'</span><span class="rn">'+r[1]+'</span>'+(r[5]?'<span class="rpa">父 · '+r[5]+'</span>':'')+'</div>'+(dur[i]?'<span class="rdur">在位约 '+dur[i]+' 年</span>':'')+'</div><div class="rmeta">'+r[2]+'　'+r[3]+'</div><p>'+r[4]+'</p></div>').join('')+'</div>')+'<!--/RL-->';
+}
+function curveSVG(pts,col,anns,segs,rulers,evs){
+  const yr0=pts[0][0],yr1=pts[pts.length-1][0],span=(yr1-yr0)||1;
+  const X0=26,X1=738,TOP=26,BASE=120;
+  const sx=y=>X0+(y-yr0)/span*(X1-X0),sy=v=>BASE-(v/100)*(BASE-TOP);
+  // 年份解析：仅当数字紧随「前」才作公元前（"250前后"不再误判为负）；「前/后 X 世纪」取该世纪中点；
+  // 完全无数字者（如"武丁时""桀之世"）返回 NaN，由下方按事件次序在曲线上均布。
+  function parseYr(t){t=String(t);
+    var c=t.match(/(前)?\s*(\d+)\s*世纪/);if(c)return (c[1]?-1:1)*((+c[2]-1)*100+50);
+    var m=t.match(/(前)?\s*(\d+)/);if(!m)return NaN;
+    return m[1]?-(+m[2]):+m[2];}
+  let p='';pts.forEach((q,i)=>{p+=(i?'L':'M')+sx(q[0]).toFixed(1)+' '+sy(q[1]).toFixed(1)+' ';});
+  const area=p+'L'+sx(yr1).toFixed(1)+' '+BASE+' L'+sx(yr0).toFixed(1)+' '+BASE+' Z';
+  // 大事圆点：任何事件都不再丢弃——建国前的铺垫事件钳制到曲线起点处显示，年份不可解析者按序均布；
+  // 横纵都接近的点竖向错开，记录落点供标注避让。
+  const all=(evs||[]);
+  const eitems=all.map((e,i)=>{let yr=parseYr(e[0]);if(isNaN(yr))yr=yr0+((i+0.5)/all.length)*span;return {e:e,i:i,yr:Math.max(yr0,Math.min(yr1,yr))};}).sort((a,b)=>a.yr-b.yr||a.i-b.i);
+  let evn='',evpos=[],prevX=-999,prevY=-999,stack=0;
+  eitems.forEach(it=>{const e=it.e,c=e[3]||(typeof EVCAT!=='undefined'&&EVCAT[e[1]])||'政';const bx=sx(it.yr),by=sy(valAt(it.yr));if(Math.abs(bx-prevX)<13&&Math.abs(by-prevY)<14)stack++;else stack=0;prevX=bx;prevY=by;const off=stack*14;let ey=by-off;if(ey<TOP)ey=by+off;const mag=evMag(e),r=(mag>=3?6.5:mag<=1?3.6:4.8);evpos.push({x:bx,top:ey-r,r:r});if(off>0)evn+='<line x1="'+bx.toFixed(1)+'" y1="'+by.toFixed(1)+'" x2="'+bx.toFixed(1)+'" y2="'+ey.toFixed(1)+'" stroke="'+CATCOL[c]+'" stroke-width="1" opacity="0.4"/>';evn+='<g class="evnode2'+(it.i===0?' sel':'')+'" data-cat="'+c+'" data-i="'+it.i+'" onclick="evPick('+it.i+')" style="cursor:pointer"><circle class="evdotc" cx="'+bx.toFixed(1)+'" cy="'+ey.toFixed(1)+'" r="'+r+'" fill="'+CATCOL[c]+'"/><title>'+e[0]+'　'+e[1]+'</title></g>';});
+  // 标注放到「自身点与横向邻近最高圆点」之上 8px，避让圆点
+  let labs='';(anns||[]).forEach(an=>{const v=pts.find(z=>z[0]===an[0]);if(!v)return;const lx=sx(an[0]),halfW=an[1].length*4.6+4;let topY=sy(v[1]);evpos.forEach(d=>{if(Math.abs(d.x-lx)<halfW+d.r&&d.top<topY)topY=d.top;});const ly=Math.max(topY-8,8);labs+='<text x="'+lx.toFixed(1)+'" y="'+ly.toFixed(1)+'" class="cann" text-anchor="middle" pointer-events="none">'+an[1]+'</text>';});
+  let dots='';pts.forEach(q=>{dots+='<circle cx="'+sx(q[0]).toFixed(1)+'" cy="'+sy(q[1]).toFixed(1)+'" r="2.3" fill="'+col+'" fill-opacity="0.5"/>';});
+  let ticks='';const ts=span<=120?20:span<=320?50:span<=700?100:500;for(let y=Math.ceil(yr0/ts)*ts;y<yr1;y+=ts){ticks+='<text x="'+sx(y).toFixed(0)+'" y="'+(BASE+12)+'" font-size="9" fill="#9b8e7e" text-anchor="middle">'+fy(y)+'</text>';}
+  const hasR=segs&&segs.length;let band='',H=150;
+  if(hasR){
+    const bTop=BASE+18,bH=27;H=bTop+bH+14;
+    segs.forEach((s,i)=>{
+      const x=sx(s[1]),w=Math.max(sx(s[2])-sx(s[1]),1.5);
+      const lbl=s[0],cjk=(lbl.match(/[\u4e00-\u9fa5]/g)||[]).length;
+      const yrs=fy(s[1])+'–'+fy(s[2]),ycjk=(yrs.match(/[\u4e00-\u9fa5]/g)||[]).length;
+      const nameW=cjk*9.4+4,yrsW=ycjk*7.4+(yrs.length-ycjk)*3.9+4,cx=(x+w/2).toFixed(1);
+      band+='<rect x="'+x.toFixed(1)+'" y="'+bTop+'" width="'+w.toFixed(1)+'" height="'+bH+'" fill="none" pointer-events="all" style="cursor:pointer" onclick="reignClick('+s[3]+')"><title>'+s[0]+'　'+(rulers&&rulers[s[3]]?rulers[s[3]][1]+'　':'')+yrs+'</title></rect>';
+      band+='<rect x="'+(x+0.8).toFixed(1)+'" y="'+(bTop+bH-3)+'" width="'+Math.max(w-1.6,1).toFixed(1)+'" height="2.4" rx="1.2" fill="'+col+'" fill-opacity="0.85" pointer-events="none"/>';
+      if(w>=yrsW){
+        band+='<text x="'+cx+'" y="'+(bTop+11).toFixed(1)+'" font-size="9.6" font-weight="700" fill="'+col+'" text-anchor="middle" pointer-events="none">'+lbl+'</text>';
+        band+='<text x="'+cx+'" y="'+(bTop+21).toFixed(1)+'" font-size="7.4" class="rlbl" fill-opacity="0.72" text-anchor="middle" pointer-events="none">'+yrs+'</text>';
+      } else if(w>=nameW){
+        band+='<text x="'+cx+'" y="'+(bTop+bH/2+3.2).toFixed(1)+'" font-size="9.4" font-weight="700" fill="'+col+'" text-anchor="middle" pointer-events="none">'+lbl+'</text>';
+      }
+    });
+  }
+  function valAt(y){if(y<=pts[0][0])return pts[0][1];for(var k=1;k<pts.length;k++){if(y<=pts[k][0]){var a=pts[k-1],b=pts[k];return a[1]+(b[1]-a[1])*(y-a[0])/((b[0]-a[0])||1);}}return pts[pts.length-1][1];}
+  return '<div class="curvebox"><svg viewBox="0 0 760 '+H+'" class="csvg" data-filter="all" role="img" aria-label="国运编年图：国力起伏曲线与历代大事节点" style="width:100%;height:auto;display:block"><defs><linearGradient id="mgc" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="'+col+'" stop-opacity="0.26"/><stop offset="1" stop-color="'+col+'" stop-opacity="0"/></linearGradient></defs><line x1="'+X0+'" y1="'+BASE+'" x2="'+X1+'" y2="'+BASE+'" stroke="#0000001a"/><path d="'+area+'" fill="url(#mgc)"/><path d="'+p+'" fill="none" stroke="'+col+'" stroke-width="2.2" stroke-linejoin="round"/>'+dots+ticks+band+evn+labs+'</svg><div class="curvecap">'+(hasR?'国运编年　曲线＝国力起伏，圆点＝大事（落点高低即当年国力，点击看详情），下方＝各帝在位时段（年号，点击定位）':'国运编年　曲线＝国力起伏，圆点＝大事（落点高低即当年国力，点击看详情）')+'</div></div>';
+}
+/* ========== 复合时期·综述 ========== */
+
+function stateCards(a,accent){
+  return '<div class="stategrid">'+a.map((st,i)=>'<div class="statecard'+(st[4]?' key':'')+'" id="cstate-'+i+'" data-st="'+esc(st[0])+'" style="--accent:'+accent+'">'+(st[4]?'<span class="statetag">代表</span>':'')+'<div class="sth"><span class="stn">'+st[0]+'</span><span class="sty">'+st[1]+'</span></div><div class="stw">'+(st[5]?'<b class="stcap">都 '+st[5]+'</b>　·　':'')+st[2]+'</div><p>'+st[3]+'</p>'+(st[6]&&st[6].length?'<div class="stchron">'+st[6].map(function(ev){return '<div class="stchi"><span class="stcy">'+ev[0]+'</span><span>'+ev[1]+'</span></div>';}).join('')+'</div>':'')+'</div>').join('')+'</div>';
+}
+function compoJump(name){
+  const el=document.querySelector('#m-states [data-st="'+name+'"]');
+  if(!el)return;
+  document.querySelectorAll('#m-states .statecard').forEach(c=>c.classList.remove('hl'));
+  el.classList.add('hl');el.scrollIntoView({behavior:'smooth',block:'center'});
+}
+function timelineJump(name){
+  const tl=document.getElementById('m-timeline');if(!tl)return;
+  tl.scrollIntoView({behavior:'smooth',block:'center'});
+  const el=tl.querySelector('[data-st="'+name+'"]');
+  if(el){tl.querySelectorAll('.sbar').forEach(b=>b.classList.remove('locate'));el.classList.add('locate');setTimeout(()=>el.classList.remove('locate'),2200);}
+}
+function periodBars(d,linkNames,keyNames){
+  const subs=d.sub.map(x=>({name:x[0],s:x[1],e:x[2]}));
+  const nl=laneAssign(subs);
+  const minS=Math.min.apply(0,subs.map(x=>x.s)),maxE=Math.max.apply(0,subs.map(x=>x.e)),span=maxE-minS;
+  const sppx=Math.min(15,Math.max(4.5,780/span)),PADs=12,BH=34,GP=22,TP=20;
+  const lanesH=TP+nl*(BH+GP),axisTop=lanesH+5,H=axisTop+20,W=PADs*2+span*sppx;
+  const xs=y=>PADs+(y-minS)*sppx;
+  let h='<div class="bdscroll"><div class="bdinner" style="width:'+W.toFixed(0)+'px;height:'+H+'px">';
+  subs.forEach((it,i)=>{
+    const l=xs(it.s),w=Math.max((it.e-it.s)*sppx,3),top=TP+it.lane*(BH+GP),col=SUBC[i%SUBC.length];
+    const cjk=(it.name.match(/[\u4e00-\u9fa5]/g)||[]).length,sy=fy(it.s),dyr=(it.e-it.s)+'年';
+    const nameW=cjk*11+4,fullW=nameW+String(sy).length*6+6;
+    let bar,ab;
+    if(w>=fullW){bar='<b>'+it.name+'</b><span class="sy">'+sy+'</span>';ab='<span class="du">'+dyr+'</span>';}
+    else if(w>=nameW){bar='<b>'+it.name+'</b>';ab='<span class="du">'+sy+'·'+dyr+'</span>';}
+    else{bar='';ab='<b>'+it.name+'</b> <span class="du">'+sy+'·'+dyr+'</span>';}
+    const link=linkNames&&linkNames.indexOf(it.name)>=0,key=keyNames&&keyNames.indexOf(it.name)>=0;
+    h+='<div class="sbar'+(link?' sbar-link':'')+(key?' sbar-key':'')+'" data-st="'+esc(it.name)+'"'+(link?' onclick="compoJump(\''+jsq(it.name)+'\')" tabindex="0" role="button"':'')+' title="'+it.name+'　'+sy+'–'+fy(it.e)+'（'+(it.e-it.s)+'年）'+(key?' · 代表政权':'')+(link?' · 点击查看详情':'')+'" style="left:'+l.toFixed(1)+'px;width:'+w.toFixed(1)+'px;top:'+top+'px;background:'+col+'">'+bar+'</div>';
+    h+='<div class="slab" style="left:'+(l+w/2).toFixed(1)+'px;top:'+(top-13)+'px">'+ab+'</div>';
+  });
+  const step=span<=60?10:span<=120?20:span<=220?25:50;
+  let tks=[minS];for(let y=Math.ceil(minS/step)*step;y<maxE;y+=step)tks.push(y);tks.push(maxE);
+  tks=[...new Set(tks)].sort((a,b)=>a-b);
+  h+='<div class="bdaxis" style="top:'+axisTop+'px"></div>';
+  tks.forEach(y=>{h+='<div class="bdtick" style="left:'+xs(y).toFixed(1)+'px;top:'+(axisTop+4)+'px">'+fy(y)+'</div>';});
+  h+='</div></div>';
+  return h;
+}
+function compoFigs(a){return '<p class="reltip">下列人物按朝代/分组/年代亦可在「人物总库」检索。</p><div class="figmini-grid">'+a.map(function(p){var g=p[4]||'chen';return '<div class="figmini" data-grp="'+g+'" data-name="'+esc(p[0])+'"><div class="fmh"><span class="fmn">'+p[0]+'</span><span class="fmr">'+p[1]+'</span><span class="fmd">'+p[2]+'</span></div><p>'+p[3]+'</p></div>';}).join('')+'</div>';}
+function compositeHTML(d){
+  const C=COMPO[d.id];
+  const meta='<div class="metarow">'
+    +'<div class="metabox"><div class="k">年代</div><div class="v">'+ys(d)+'</div></div>'
+    +'<div class="metabox"><div class="k">跨度</div><div class="v">'+durTxt(d)+'</div></div>'
+    +'<div class="metabox"><div class="k">政权数</div><div class="v">'+d.sub.length+' 个</div></div>'
+    +'<div class="metabox"><div class="k">主体民族</div><div class="v" style="font-size:13px">'+d.eth+'</div></div></div>';
+  const linkNames=C.states.map(s=>s[0]),keyNames=C.states.filter(s=>s[4]).map(s=>s[0]);
+  let h='<section class="mod" id="m-timeline"><h3>分期一览</h3><p class="compohint">下图为该时期各政权的并立与更替（横轴年份、纵向并行表示同时存在）。<b>金框 ★ 为代表政权</b>；点击有详卡的色块可跳到下方「代表政权」对应条目。</p>'+periodBars(d,linkNames,keyNames)+'</section><section class="mod" id="m-ov"><h3>时期综述</h3>'+meta+'<div class="rich">'+C.ov+'</div></section>';
+  var ss=C.secsum||{};if(C.pol){[['pol','政治'],['eco','经济社会'],['mil','军事'],['cul','文化'],['art','文艺'],['eth','民族对外']].forEach(function(p){h+='<section class="mod" id="m-'+p[0]+'"><h3>'+p[1]+'</h3>'+cblocks(C[p[0]],ss[p[0]])+'</section>';});}
+  h+='<section class="mod" id="m-states"><h3>代表政权</h3>'+stateCards(C.states,d.c)+'</section>';
+  if(DETAIL[d.id]&&DETAIL[d.id].fig)h+='<section class="mod" id="m-figs"><h3>代表人物</h3>'+compoFigs(DETAIL[d.id].fig)+'</section>';
+  if(DETAIL[d.id]&&DETAIL[d.id].story)h+='<section class="mod" id="m-story"><h3>那些事</h3>'+storyList(DETAIL[d.id].story.note,DETAIL[d.id].story.eps,DETAIL[d.id].story.links)+'</section>';
+  return h;
+}
+
+
+/* 中枢架构示意图：由原 7 段近重复的 SVG 字符串改为「绘图指令 + 渲染器」，去重且便于增改。
+   指令：['T',标题] ['E',x,y,w,h,文字y,文字] 皇帝框 ['B',x,y,w,h,标题y,标题,副文?,字号?,副行距?]
+        ['L',x1,y1,x2,y2,dash?] ['X',原样SVG片段]；尾注 [y,文字]。 */
+function _gv(h,ops,foot){var s='<div class="dgsvg"><svg viewBox="0 0 720 '+h+'" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto">';
+  ops.forEach(function(o){var k=o[0];
+    if(k==='T')s+='<text x="12" y="18" class="t-strong" font-size="13">'+o[1]+'</text>';
+    else if(k==='E')s+='<rect x="'+o[1]+'" y="'+o[2]+'" width="'+o[3]+'" height="'+o[4]+'" rx="6" fill="#9c2b22"/><text x="'+(o[1]+o[3]/2)+'" y="'+o[5]+'" font-size="12" text-anchor="middle" class="wt">'+o[6]+'</text>';
+    else if(k==='B'){var cx=o[1]+o[3]/2;s+='<rect x="'+o[1]+'" y="'+o[2]+'" width="'+o[3]+'" height="'+o[4]+'" rx="6" class="box"/><text x="'+cx+'" y="'+o[5]+'" font-size="'+(o[8]||11)+'" text-anchor="middle" class="t-strong">'+o[6]+'</text>';if(o[7])s+='<text x="'+cx+'" y="'+(o[5]+(o[9]||13))+'" font-size="9" text-anchor="middle">'+o[7]+'</text>';}
+    else if(k==='L')s+='<line x1="'+o[1]+'" y1="'+o[2]+'" x2="'+o[3]+'" y2="'+o[4]+'" class="neu"'+(o[5]?' stroke-dasharray="4 3"':'')+'/>';
+    else if(k==='X')s+=o[1];});
+  return s+'<text x="360" y="'+foot[0]+'" font-size="10.5" text-anchor="middle">'+foot[1]+'</text></svg></div>';}
+
+
+function moduleHTML(d){
+  const D=DETAIL[d.id]||null;
+  const meta='<div class="metarow">'
+    +'<div class="metabox"><div class="k">年代</div><div class="v">'+ys(d)+'</div></div>'
+    +'<div class="metabox"><div class="k">国祚</div><div class="v">'+durTxt(d)+'</div></div>'
+    +'<div class="metabox"><div class="k">都城</div><div class="v" style="font-size:13px">'+(DCAP[d.id]||d.cap)+'</div></div>'
+    +'<div class="metabox"><div class="k">开国</div><div class="v" style="font-size:13px">'+d.founder+'</div></div>'
+    +'<div class="metabox"><div class="k">民族</div><div class="v" style="font-size:13px">'+d.eth+'</div></div></div>';
+  const m={};
+  m.ov=meta+(D&&D.curve?curveSVG(D.curve,d.c,D.curveAnns,D.reignsegs,D.rulers,D.events):'<div class="ph">国势曲线（兴衰起落）<span class="pic">横轴年份 · 纵轴国力，标注盛世与危机</span></div>')+(D&&D.events?evControls(D.events):'')+(D&&D.ov?'<div class="rich">'+D.ov+'</div>':'<div style="margin-top:14px"><div class="sk w85"></div><div class="sk w70"></div><div class="sk w55"></div><div style="font-size:12px;color:var(--ink2);margin-top:6px">朝代简介（约 150–250 字）</div></div>')+(GOVNOTE[d.id]?'<div class="govnote"><b>以治道观之　</b>'+GOVNOTE[d.id]+'</div>':'')+((typeof GOVCHART!=='undefined'&&GOVCHART[d.id])?'<div class="dgwrap" style="margin-top:12px"><div class="govchart-cap">中枢权力架构（示意）</div><div class="dgscroll">'+GOVCHART[d.id]+'</div></div>':'')+(D&&D.feature?D.feature:'');
+  m.rulers=D&&D.rulers?'<div class="reigncap">各帝在位时段见上方「国运编年图」（点击下方色块可定位）；下方为各帝详录与在位时长。</div>'+rulerList(D.rulers,SCHEMATIC.indexOf(d.id)>=0?null:D.reignsegs):'<div class="ph">帝系时间轴<span class="pic">历代君主 · 年号 · 在位 · 生平与评说</span></div>';
+  var ss=(D&&D.secsum)||{};
+  m.pol=D&&D.pol?cblocks(D.pol,ss.pol):'<div class="skgrid">'+skcards(4,'制度条目')+'</div>';
+  m.eco=D&&D.eco?cblocks(D.eco,ss.eco):'<div class="skgrid">'+skcards(4,'经济 / 社会')+'</div>';
+  m.mil=D&&D.mil?cblocks(D.mil,ss.mil):'<div class="ph" style="margin-bottom:12px">重大战争时间轴<span class="pic">年份 · 战役 · 结果</span></div><div class="skgrid">'+skcards(3,'军制 / 名将')+'</div>';
+  m.cul=D&&D.cul?cblocks(D.cul,ss.cul):'<div class="skgrid">'+skcards(4,'思想 / 宗教 / 科技')+'</div>';
+  m.art=D&&D.art?cblocks(D.art,ss.art):'<div class="skgrid">'+skcards(4,'文学 / 艺术')+'</div>';
+  m.eth=D&&D.eth?cblocks(D.eth,ss.eth):'<div class="ph" style="margin-bottom:12px">对外与民族关系时间轴<span class="pic">和战 · 交流 · 边疆</span></div><div class="skgrid">'+skcards(3,'周边政权 / 民族')+'</div>';
+  m.fig=D&&D.fig?figCards(D.fig,D.bios):'<div class="skgrid">'+skcards(6,'人物卡（生卒·简介）')+'</div>';
+  m.scene=D&&D.scene?sceneCards(D.scene):'<div class="skgrid">'+skcards(4,'名场面')+'</div>';
+  return MODULES.map(([k,label])=>'<section class="mod" id="m-'+k+'"><h3>'+label+'</h3>'+m[k]+'</section>').join('')+(D&&D.story?'<section class="mod" id="m-story"><h3>那些事</h3>'+storyList(D.story.note,D.story.eps,D.story.links)+'</section>':'');
+}
+let spy=null;
+function relatedTopics(id){return TOPICS.filter(function(t){var T=TOPIC_DATA[t[0]];return T&&T.nodes&&T.nodes.some(function(n){return n[2]===id;});});}
+function relatedTopicsHTML(id){var arr=relatedTopics(id);if(!arr.length)return '';
+  var chip=function(t){return '<a href="#/topic/'+t[0]+'"><span class="sg">'+t[1]+'</span>'+t[2]+'</a>';};
+  var order=[['top','通览']].concat(TGROUPS);
+  var grouped=order.map(function(g){var sub=arr.filter(function(t){return t[4]===g[0];});if(!sub.length)return '';
+    return '<div class="relgrp"><span class="relgl">'+g[1]+'</span><span class="tsee">'+sub.map(chip).join('')+'</span></div>';}).join('');
+  return '<section class="mod" id="m-topics"><h3>相关专题</h3><p class="reltip">本朝在下列专题中作为关键节点出现，可由此转入纵向脉络：</p>'+grouped+'</section>';}
+/* 数据块已外置，运行时由 data-loader 注入 */
+async function fillDynasty(id){ await getDynasty(id).catch(()=>{}); if(typeof COMPO!=="undefined"||true){ try{ await getCompo(id); }catch(e){} }
+  const d=DY.find(x=>x.id===id)||DY.find(x=>x.id==='tang')||DY[0];
+  const pg=document.getElementById('page-dynasty');
+  pg.style.setProperty('--accent',d.c);
+  document.getElementById('dynBig').textContent=d.name;
+  document.getElementById('dynFull').textContent=d.full;
+  document.getElementById('dynYears').textContent=ys(d);
+  document.getElementById('dynEth').textContent=d.eth;
+  document.getElementById('dynCrumb').textContent=d.full;
+  document.title=d.full+' · 华夏纪';
+  const C=COMPO[d.id],badge=document.getElementById('dynDetail');
+  if(C){badge.style.display='';badge.textContent='时期综述';badge.style.background='var(--azure)';}
+  else{badge.textContent='全史志';badge.style.background='var(--gold)';badge.style.display=DETAIL[d.id]?'':'none';}
+  const navmods=C?[['timeline','分期一览'],['ov','综述']].concat(C.pol?[['pol','政治'],['eco','经济社会'],['mil','军事'],['cul','文化'],['art','文艺'],['eth','民族对外']]:[]).concat([['states','代表政权']]).concat(DETAIL[d.id]&&DETAIL[d.id].fig?[['figs','代表人物']]:[]).concat(DETAIL[d.id]&&DETAIL[d.id].story?[['story','那些事']]:[]):MODULES.concat(DETAIL[d.id]&&DETAIL[d.id].story?[['story','那些事']]:[]);
+  if(relatedTopics(d.id).length)navmods.push(['topics','相关专题']);
+  document.getElementById('subnav').innerHTML=navmods.map(([k,l],i)=>'<button data-k="'+k+'" class="'+(i===0?'on':'')+'" onclick="document.getElementById(\'m-'+k+'\').scrollIntoView({behavior:\'smooth\'})">'+l+'</button>').join('');
+  document.getElementById('dynModules').innerHTML=py((C?compositeHTML(d):moduleHTML(d))+relatedTopicsHTML(d.id));
+  // scroll-spy（IntersectionObserver 不可用时静默跳过，仅失去高亮联动，不影响页面）
+  if(spy)spy.disconnect();
+  if(typeof IntersectionObserver!=='undefined'){
+    spy=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const k=en.target.id.replace('m-','');document.querySelectorAll('#subnav button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));}});},{rootMargin:'-110px 0px -70% 0px'});
+    document.querySelectorAll('#dynModules .mod').forEach(el=>spy.observe(el));
+  }
+  if(typeof syncHeaderH==='function')requestAnimationFrame(syncHeaderH);
+}
+
+/* ========== 专题 ========== */
+function renderTopics(){
+  var card=function(t){return '<button class="tcard" data-route="topic/'+t[0]+'"><div class="tg">'+t[1]+'</div><h4>'+t[2]+'</h4><p>'+t[3]+'</p></button>';};
+  var html='',top=TOPICS.filter(function(t){return t[4]==='top';});
+  if(top.length)html+='<div class="tgrp-h first">通览 · 总论</div>'+top.map(card).join('');
+  var firstDone=top.length>0;
+  TGROUPS.forEach(function(g){var arr=TOPICS.filter(function(t){return t[4]===g[0];});if(!arr.length)return;
+    html+='<div class="tgrp-h'+(firstDone?'':' first')+'">'+g[1]+'</div>'+arr.map(card).join('');firstDone=true;});
+  var box=document.getElementById('topicGrid');box.className='tgrid tgrp-top';box.innerHTML=html;
+}
+function deepHTML(blocks){
+  if(!blocks||!blocks.length)return '';
+  return blocks.map(function(b){var inner='';
+    if(b.kind==='glossary'){inner='<dl class="deep-gloss">'+b.items.map(function(it){return '<div><dt>'+it[0]+'</dt><dd>'+it[1]+'</dd></div>';}).join('')+'</dl>';}
+    else if(b.kind==='codes'){inner='<div class="deep-tablewrap"><table class="deep-table"><thead><tr>'+b.cols.map(function(c){return '<th>'+c+'</th>';}).join('')+'</tr></thead><tbody>'+b.rows.map(function(r){return '<tr>'+r.map(function(c,i){return i===0?'<th scope="row">'+c+'</th>':'<td data-label="'+b.cols[i]+'">'+c+'</td>';}).join('')+'</tr>';}).join('')+'</tbody></table></div>';}
+    else if(b.kind==='lineage'){inner='<div class="deep-lineage">'+b.groups.map(function(g){return '<div class="dl-node"><div class="dl-h">'+g[0]+'</div><div class="dl-m">'+g[1]+'</div>'+(g[2]?'<p class="dl-n">'+g[2]+'</p>':'')+'</div>';}).join('')+'</div>';}
+    else if(b.kind==='works'){inner='<div class="deep-works">'+b.items.map(function(it){return '<div class="dw-card"><div class="dw-t">'+it[0]+'</div><div class="dw-by">'+it[1]+'</div><p>'+it[2]+'</p>'+(it[3]?'<div class="dw-q">'+it[3]+'</div>':'')+'</div>';}).join('')+'</div>';}
+    else if(b.kind==='case'){inner='<div class="rich">'+b.html+'</div>';}
+    return '<section class="mod"><h3 style="--accent:#9c2b22;color:#9c2b22">深读 · '+b.title+'</h3>'+inner+'</section>';
+  }).join('');
+}
+
+
+async function fillTopic(id){ await getTopic(id).catch(()=>{});
+  const t=TOPICS.find(x=>x[0]===id)||TOPICS[0];const T=TOPIC_DATA[t[0]];
+  document.getElementById('topicG').textContent=t[1];
+  document.getElementById('topicName').textContent=t[2];
+  document.getElementById('topicDesc').textContent=t[3];
+  document.title=t[2]+' · 华夏纪';
+  const col=n=>{const dy=DY.find(d=>d.id===n[2]);return dy?dy.c:'#8a6b5a';};
+  const strip='<div class="tstrip">'+T.nodes.map(function(n,i){var arr=(i<T.nodes.length-1?'<span class="tarrow">›</span>':'');
+    var tag=(/长程|长时段|总览|趋势|纵观/.test(n[0]))
+      ?'<span class="tstage" style="--c:'+col(n)+'">'+n[0]+'</span>'
+      :'<a class="tstage" style="--c:'+col(n)+'" href="#/dynasty/'+n[2]+'">'+n[0]+'</a>';
+    return tag+arr;}).join('')+'</div>';
+  const cards='<div class="tnodes">'+T.nodes.map(function(n){var inner='<div class="tnh">'+n[0]+'</div><p>'+n[1]+'</p>';
+    return (/长程|长时段|总览|趋势|纵观/.test(n[0]))
+      ?'<div class="tnode" style="--c:'+col(n)+'">'+inner+'</div>'
+      :'<a class="tnode tnode-link" style="--c:'+col(n)+'" href="#/dynasty/'+n[2]+'">'+inner+'<span class="tn-go">进入该朝 ›</span></a>';}).join('')+'</div>';
+  var seeHTML='';var sk=TOPIC_SEE[id];
+  if(sk&&sk.length){seeHTML='<section class="mod"><h3 style="--accent:#a9842f;color:#a9842f">参见 · 相关专题</h3><div class="tsee">'+sk.map(function(key){var tt=TOPICS.find(function(x){return x[0]===key;});return tt?'<a href="#/topic/'+key+'"><span class="sg">'+tt[1]+'</span>'+tt[2]+'</a>':'';}).join('')+'</div></section>';}
+  document.getElementById('topicBody').innerHTML=py(
+    '<section class="mod"><h3 style="--accent:#a9842f;color:#a9842f">跨朝代脉络</h3>'+strip+'</section>'
+   +'<section class="mod"><h3 style="--accent:#a9842f;color:#a9842f">演变脉络</h3><div class="rich">'+T.arc+'</div></section>'
+   +((T.diagram||(typeof TOPIC_DIAGRAM!=='undefined'&&TOPIC_DIAGRAM[t[0]]))?'<section class="mod"><h3 style="--accent:#a9842f;color:#a9842f">图解</h3><div class="dgwrap">'+(T.diagram||TOPIC_DIAGRAM[t[0]])+'</div></section>':'')
+   +'<section class="mod"><h3 style="--accent:#a9842f;color:#a9842f">关键节点 · 各朝代表</h3>'+cards+'</section>'
+   +(T.deep?deepHTML(T.deep):'')
+   +(T.insight?'<section class="mod"><h3 style="--accent:#a9842f;color:#a9842f">深读 · 史家视角</h3><div class="rich insight">'+T.insight+'</div></section>':'')
+   +seeHTML);
+}
+
+/* ========== 人物总库（聚合各朝） ========== */
+const FERA=[['all','全部时代'],['ancient','先秦'],['qinhan','秦汉'],['weijin','魏晋南北朝'],['suitang','隋唐五代'],['songyuan','宋辽金元'],['mingqing','明清']];
+const FROLE=[['all','全部身份'],['jun','帝王'],['chen','文臣'],['wu','武将'],['siwen','思想文艺'],['kexi','科技西学'],['hou','后妃·名媛']];
+const FRN={jun:'帝王',chen:'文臣',wu:'武将',siwen:'思想文艺',kexi:'科技西学',hou:'后妃·名媛'};
+let FIGS=null,figEraSel='all',figRoleSel='all',figSortDim=-1,figRatedOnly=false,FIGCMP=[];
+function buildFigs(){ if(window.__FIGS__) return window.__FIGS__;
+  if(FIGS)return FIGS;var arr=[];
+  DY.forEach(d=>{const D=DETAIL[d.id];if(!D||!D.fig)return;D.fig.forEach(p=>{arr.push({name:p[0],role:p[1],dates:p[2],intro:p[3],grp:p[4]||(typeof FIGGRP!=='undefined'&&FIGGRP[p[0]])||'chen',bio:(D.bios&&D.bios[p[0]])||'',rate:(typeof FIGRATE!=='undefined'&&FIGRATE[p[0]])||null,dyId:d.id,dyName:d.name,col:d.c,era:d.grp});});});
+  var seen={},out=[];for(var i=arr.length-1;i>=0;i--){if(seen[arr[i].name])continue;seen[arr[i].name]=1;out.unshift(arr[i]);}
+  FIGS=out;return FIGS;
+}
+function cmpRadarSVG(names){var cx=80,cy=80,mx=58,a=[-1.5708,0,1.5708,3.1416];function P(i,rad){return (cx+rad*Math.cos(a[i])).toFixed(1)+','+(cy+rad*Math.sin(a[i])).toFixed(1);}var grid='';[mx,mx*0.66,mx*0.33].forEach(function(g){grid+='<polygon points="'+[0,1,2,3].map(function(i){return P(i,g);}).join(' ')+'" class="rdgrid"/>';});var ax='';[0,1,2,3].forEach(function(i){var p=P(i,mx).split(',');ax+='<line x1="80" y1="80" x2="'+p[0]+'" y2="'+p[1]+'" class="rdgrid"/>';});var cols=['#9c2b22','#355f78','#a9842f'];var polys='';names.forEach(function(nm,k){var r=(typeof FIGRATE!=='undefined')&&FIGRATE[nm];if(!r)return;var col=cols[k%3];polys+='<polygon points="'+[0,1,2,3].map(function(i){return P(i,r[i]/5*mx);}).join(' ')+'" fill="'+col+'" fill-opacity="0.15" stroke="'+col+'" stroke-width="2" stroke-linejoin="round"/>';[0,1,2,3].forEach(function(i){var p=P(i,r[i]/5*mx).split(',');polys+='<circle cx="'+p[0]+'" cy="'+p[1]+'" r="2.3" fill="'+col+'"/>';});});var lab='<text x="80" y="14" class="rdlab">才</text><text x="148" y="84" class="rdlab">德</text><text x="80" y="156" class="rdlab">识</text><text x="12" y="84" class="rdlab">度</text>';return '<svg viewBox="0 0 160 160" style="width:148px;height:148px">'+grid+ax+polys+lab+'</svg>';}
+function figCmpBox(){var dim=['才','德','识','度'],cols=['#9c2b22','#355f78','#a9842f'];if(!FIGCMP.length)return '<div class="figcmp empty">才德识度 · 对比叠合图　—　点击下方人物卡上的「＋ 对比」，最多叠合 3 位的四维评断</div>';var legend=FIGCMP.map(function(nm,k){var r=(typeof FIGRATE!=='undefined'&&FIGRATE[nm])||[0,0,0,0];return '<div class="cmpleg"><span class="cmpdot" style="background:'+cols[k%3]+'"></span><b>'+nm+'</b><span class="cmpvals">'+dim.map(function(d,i){return d+r[i];}).join('  ')+'</span><button class="cmpx" onclick="figCmpToggle(\''+jsq(nm)+'\')" title="移除">×</button></div>';}).join('');return '<div class="figcmp"><div class="cmpradar">'+cmpRadarSVG(FIGCMP)+'</div><div class="cmplegs"><div class="cmphd">四维对比（'+FIGCMP.length+'/3）<button class="cmpclear" onclick="figCmpClear()">清空</button></div>'+legend+'</div></div>';}
+function figCmpToggle(name){var i=FIGCMP.indexOf(name);if(i>=0)FIGCMP.splice(i,1);else{if(FIGCMP.length>=3)FIGCMP.shift();FIGCMP.push(name);}renderFigures();}
+function figCmpClear(){FIGCMP=[];renderFigures();}
+async function renderFigures(){ try{ window.__FIGS__=await getFigures(); }catch(e){}
+  const figs=buildFigs();
+  const tot=document.getElementById('figTotal');if(tot)tot.textContent=figs.length;
+  document.getElementById('figEra').innerHTML=FERA.map(e=>'<button class="chip'+(e[0]===figEraSel?' on':'')+'" onclick="figEraSel=\''+e[0]+'\';renderFigures()">'+e[1]+'</button>').join('');
+  document.getElementById('figRole').innerHTML=FROLE.map(r=>'<button class="chip'+(r[0]===figRoleSel?' on':'')+'" onclick="figRoleSel=\''+r[0]+'\';renderFigures()">'+r[1]+'</button>').join('');
+  const fr=document.getElementById('figRate');
+  if(fr){const dm=['才','德','识','度'];fr.innerHTML='<span class="ratehint">才德识度评断：</span>'+'<button class="chip'+(figSortDim<0?' on':'')+'" onclick="figSortDim=-1;renderFigures()">默认序</button>'+dm.map((d,i)=>'<button class="chip'+(figSortDim===i?' on':'')+'" onclick="figSortDim='+i+';renderFigures()">'+d+' 高→低</button>').join('')+'<button class="chip'+(figRatedOnly?' on':'')+'" onclick="figRatedOnly=!figRatedOnly;renderFigures()">只看已评断</button>';}
+  const q=(document.getElementById('figQ').value||'').trim();
+  let list=figs.filter(f=>(figEraSel==='all'||f.era===figEraSel)&&(figRoleSel==='all'||f.grp===figRoleSel)&&(!q||(f.name+f.role+f.intro+f.dyName).includes(q))&&(!figRatedOnly||f.rate));
+  if(figSortDim>=0){list=list.slice().sort((a,b)=>{const ra=a.rate?a.rate[figSortDim]:-1,rb=b.rate?b.rate[figSortDim]:-1;if(rb!==ra)return rb-ra;const sa=a.rate?a.rate[0]+a.rate[1]+a.rate[2]+a.rate[3]:-1,sb=b.rate?b.rate[0]+b.rate[1]+b.rate[2]+b.rate[3]:-1;return sb-sa;});}
+  const cards=list.length?'<div class="figmini-grid">'+list.map(f=>'<div class="figmini'+(f.bio?' expandable':'')+'" style="--accent:'+f.col+'"'+(f.bio?' onclick="this.classList.toggle(\'open\')" tabindex="0" role="button"':'')+'><div class="fmh"><span class="fmn">'+f.name+'</span><span class="figdy" style="background:'+f.col+'">'+f.dyName+'</span><span class="fmd">'+f.dates+'</span>'+(f.bio?'<span class="figcaret">▾</span>':'')+'</div><div class="fmr2">'+f.role+'　·　'+FRN[f.grp]+'</div><p>'+f.intro+'</p>'+(f.rate?'<button class="figcmpbtn'+(FIGCMP.indexOf(f.name)>=0?' on':'')+'" onclick="event.stopPropagation();figCmpToggle(\''+jsq(f.name)+'\')">'+(FIGCMP.indexOf(f.name)>=0?'✓ 对比中':'＋ 对比')+'</button>':'')+(f.bio?'<div class="figbio">'+rateHTML(f.rate)+f.bio+'</div>':'')+'</div>').join('')+'</div>':'<p class="lead">未找到匹配的人物。</p>';
+  document.getElementById('figList').innerHTML=py(figCmpBox()+'<div class="figcount">共 '+list.length+' 位'+(figEraSel!=='all'||figRoleSel!=='all'||q||figRatedOnly||figSortDim>=0?'（已筛选 / 共 '+figs.length+'）':'')+'</div>'+cards);
+}
+
+/* ========== 对照（语境化） ========== */
+function renderContrastPanel(){
+  const cats=['同期并立','前后承继','盛世横比'];
+  document.getElementById('contrastPanel').innerHTML=cats.map(cat=>{
+    const items=CONTRASTS.filter(c=>c.cat===cat);
+    return '<div style="margin-bottom:18px"><div style="font-size:13px;font-weight:700;color:var(--azure);margin:6px 0 10px;letter-spacing:.06em">'+cat+'</div><div class="cards">'+items.map(c=>{
+      const cols=c.members?c.members.map(id=>DY.find(d=>d.id===id).c):c.periods.map(p=>DY.find(d=>d.id===p[2]).c);
+      const sw=cols.map(col=>'<span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:'+col+';margin-right:3px"></span>').join('');
+      return '<button class="dcard" style="--accent:'+cols[0]+'" data-route="contrast/'+c.id+'"><div style="margin-bottom:7px">'+sw+'</div><div class="dn" style="font-family:var(--serif);font-size:17px">'+c.name+'</div><div class="dd">'+c.desc+'</div></button>';
+    }).join('')+'</div></div>';
+  }).join('');
+}
+function ctRow(k,v,ph){return '<div class="crow2"><span class="k">'+k+'</span><span class="v'+(ph?' ph2':'')+'">'+v+'</span></div>';}
+
+function ctColD(d){
+  const D=DETAIL[d.id],C=COMPO[d.id];let ex='';
+  if(D&&D.pol&&D.fig){ex=ctRow('代表人物',D.fig.slice(0,4).map(f=>f[0]).join('、'))+ctRow('制度',D.pol.slice(0,2).map(p=>p[0]).join('、'))+ctRow('简介',d.note);}
+  else if(C){const ks=C.states.filter(s=>s[4]);ex=ctRow('代表政权',(ks.length?ks:C.states.slice(0,3)).map(s=>s[0]).join('、'))+(D&&D.fig?ctRow('代表人物',D.fig.slice(0,4).map(f=>f[0]).join('、')):'')+ctRow('简介',d.note);}
+  else ex=ctRow('简介',d.note);
+  return '<div class="cmpcol"><div class="ch" style="background:'+d.c+'"><div class="n">'+d.name+'</div><div class="y">'+d.full+'　'+ys(d)+'</div></div>'
+  +ctRow('国祚',durTxt(d))+ctRow('都城',d.cap)+ctRow('开国',d.founder)+ctRow('民族',d.eth)+ex+'</div>';}
+function ctColP(p){const d=DY.find(x=>x.id===p[2]);const I=PERIODS_INFO[p[0]]||{};return '<div class="cmpcol"><div class="ch" style="background:'+d.c+'"><div class="n" style="font-family:var(--serif);font-size:19px">'+p[0]+'</div><div class="y">'+p[1]+'</div></div>'
+  +ctRow('君主',I.jun||'—')+ctRow('施政',I.zheng||'—')+ctRow('气象',I.qi||'—')+'</div>';}
+async function renderContrast(id){ try{ var _c=(CONTRASTS||[]).find(function(x){return x.id===id;}); if(_c&&_c.ids) await Promise.all(_c.ids.map(function(d){return getDynasty(d).catch(function(){});})); }catch(e){}
+  const c=CONTRASTS.find(x=>x.id===id)||CONTRASTS[0];
+  document.getElementById('ctName').textContent=c.name;
+  document.getElementById('ctDesc').textContent=c.cat+' · '+c.desc;
+  document.getElementById('ctNote').innerHTML='<b>对照 ≠ 排名。</b>'+(c.cat==='同期并立'?'这些政权同时存在、彼此竞争，对照其制度、民族与格局之异同。':c.cat==='前后承继'?'承继关系下，对照开创与守成、奠基与大成。':'治世横比旨在呈现各代盛世的施政与气象，而非高下排名。');
+  document.getElementById('contrastBody').innerHTML=py(c.members?c.members.map(id=>ctColD(DY.find(d=>d.id===id))).join(''):c.periods.map(ctColP).join(''));
+}
+
+/* ========== 搜索 ========== */
+function dyCard(d){return '<a class="dcard" style="--accent:'+d.c+'" href="#/dynasty/'+d.id+'"><div class="dn">'+d.name+'</div><div class="dy">'+ys(d)+'</div><div class="dd">'+d.note+'</div></a>';}
+function dynastySnakeSVG(containerW){
+  var nodeW=216,nodeH=128,gapX=24,gapY=40,padX=22,padY=16,bulge=24,mc=14;
+  var foot=nodeW+gapX;
+  var avail=Math.max(containerW||760,300);
+  var C=Math.max(2,Math.min(5,Math.round((avail-2*padX+gapX)/foot)));
+  var n=DY.length,rows=Math.ceil(n/C);
+  var W=padX*2+C*nodeW+(C-1)*gapX,H=padY*2+rows*nodeH+(rows-1)*gapY;
+  function colOf(i){var r=Math.floor(i/C),p=i%C;return (r%2===0)?p:(C-1-p);}
+  function nx(i){return padX+colOf(i)*(nodeW+gapX);}
+  function ny(i){return padY+Math.floor(i/C)*(nodeH+gapY);}
+  function wrapNote(str){var L=[],c='';for(var i=0;i<str.length;i++){c+=str.charAt(i);if(c.length>=mc){L.push(c);c='';}}if(c)L.push(c);var p='，。、；：）】》」』,.';for(var k=1;k<L.length;k++){while(L[k]&&p.indexOf(L[k].charAt(0))>=0&&L[k-1].length<=mc){L[k-1]+=L[k].charAt(0);L[k]=L[k].slice(1);}}if(L.length>2)L=[L[0],L[1]];return L;}
+  var link='';
+  for(var i=0;i<n-1;i++){
+    var r=Math.floor(i/C),rn=Math.floor((i+1)/C);
+    var yc1=ny(i)+nodeH/2,yc2=ny(i+1)+nodeH/2;
+    if(r===rn){
+      var a,b;
+      if(r%2===0){a=nx(i)+nodeW;b=nx(i+1);}else{a=nx(i);b=nx(i+1)+nodeW;}
+      link+='<line class="snake-link" x1="'+a.toFixed(1)+'" y1="'+yc1.toFixed(1)+'" x2="'+b.toFixed(1)+'" y2="'+yc1.toFixed(1)+'"/>';
+    }else{
+      if(r%2===0){var rx=nx(i)+nodeW;link+='<path class="snake-link" d="M'+rx.toFixed(1)+','+yc1.toFixed(1)+' C'+(rx+bulge).toFixed(1)+','+yc1.toFixed(1)+' '+(rx+bulge).toFixed(1)+','+yc2.toFixed(1)+' '+rx.toFixed(1)+','+yc2.toFixed(1)+'"/>';}
+      else{var lx=nx(i);link+='<path class="snake-link" d="M'+lx.toFixed(1)+','+yc1.toFixed(1)+' C'+(lx-bulge).toFixed(1)+','+yc1.toFixed(1)+' '+(lx-bulge).toFixed(1)+','+yc2.toFixed(1)+' '+lx.toFixed(1)+','+yc2.toFixed(1)+'"/>';}
+    }
+  }
+  var nodes='';
+  DY.forEach(function(d,i){var x=nx(i),y=ny(i),cx=(x+nodeW/2).toFixed(1);
+    var nl=wrapNote(d.note),noteSvg='';
+    nl.forEach(function(ln,j){noteSvg+='<text x="'+cx+'" y="'+(y+86+j*19)+'" class="snode-note">'+ln+'</text>';});
+    nodes+='<a href="#/dynasty/'+d.id+'" class="snode" style="--accent:'+d.c+'"><rect x="'+x.toFixed(1)+'" y="'+y.toFixed(1)+'" width="'+nodeW+'" height="'+nodeH+'" rx="13" class="snode-box"/><line class="snode-rule" x1="'+(x+18).toFixed(1)+'" y1="'+(y+64)+'" x2="'+(x+nodeW-18).toFixed(1)+'" y2="'+(y+64)+'"/><text x="'+cx+'" y="'+(y+35)+'" class="snode-name">'+d.name+'</text><text x="'+cx+'" y="'+(y+56)+'" class="snode-yr">'+ys(d)+'</text>'+noteSvg+'<title>'+d.full+'　'+d.note+'</title></a>';
+  });
+  return '<svg viewBox="0 0 '+W+' '+H+'" class="snakemap" role="img" aria-label="历代王朝序列·回形针式排布" style="width:100%;height:auto;display:block">'+link+nodes+'</svg>';
+}
+function mountSnake(){
+  var sentinel=document.getElementById('snakeSentinel'),svg=document.getElementById('snakeSvg');
+  if(!sentinel||!svg)return;
+  function widthOf(){return sentinel.clientWidth||(sentinel.getBoundingClientRect?Math.round(sentinel.getBoundingClientRect().width):0);}
+  function draw(){var w=widthOf();if(!w||w===svg._lastW)return;svg._lastW=w;svg.innerHTML=dynastySnakeSVG(w);}
+  draw();
+  if(typeof ResizeObserver!=='undefined'){
+    if(sentinel._ro)sentinel._ro.disconnect();
+    var raf=0;
+    sentinel._ro=new ResizeObserver(function(){if(raf)return;raf=(typeof requestAnimationFrame!=='undefined'?requestAnimationFrame:setTimeout)(function(){raf=0;draw();});});
+    sentinel._ro.observe(sentinel);
+  }
+}
+async function renderSearch(q){ try{ window.__SEARCH__=await getSearchIndex(); }catch(e){}
+  q=(q||'').trim();const box=document.getElementById('searchResults');
+  if(!q){box.innerHTML='<div class="snakewrap" id="snakeWrap"><div id="snakeSentinel" style="width:100%;height:0;overflow:hidden"></div><div id="snakeSvg"></div></div>';mountSnake();return;}
+  const dys=DY.filter(d=>(d.full+d.name+d.founder+d.cap+d.note+ys(d)+d.eth).includes(q));
+  const figs=buildFigs().filter(f=>(f.name+f.role+f.intro+f.dyName).includes(q));
+  const evs=[];DY.forEach(d=>{const D=DETAIL[d.id];if(!D||!D.events)return;D.events.forEach(e=>{if((e[0]+e[1]+e[2]).includes(q))evs.push({y:e[0],t:e[1],desc:e[2],dyName:d.name,dyId:d.id,col:d.c});});});
+  let h='';
+  if(dys.length)h+='<div class="srhead">朝代 · '+dys.length+'</div><div class="cards">'+dys.map(dyCard).join('')+'</div>';
+  if(figs.length)h+='<div class="srhead">人物 · '+figs.length+'</div><div class="cards">'+figs.slice(0,60).map(f=>'<a class="dcard" style="--accent:'+f.col+'" href="#/dynasty/'+f.dyId+'"><div class="dn" style="font-size:16px">'+f.name+' <span class="figdy" style="background:'+f.col+'">'+f.dyName+'</span></div><div class="dy">'+f.role+'　'+f.dates+'</div><div class="dd">'+f.intro+'</div></a>').join('')+'</div>';
+  if(evs.length)h+='<div class="srhead">事件 · '+evs.length+'</div><div class="evlist">'+evs.slice(0,60).map(e=>'<a class="evrow" style="text-decoration:none" href="#/dynasty/'+e.dyId+'"><span class="evy">'+e.y+'</span><div class="evb"><b>'+e.t+'</b> <span class="figdy" style="background:'+e.col+'">'+e.dyName+'</span><p>'+e.desc+'</p></div></a>').join('')+'</div>';
+  box.innerHTML=py(h||'<p class="lead">未找到匹配项（试试：唐 / 变法 / 岳飞 / 1127）。</p>');
+}
+function debounce(f,ms){let t;return function(){const a=arguments,s=this;clearTimeout(t);t=setTimeout(function(){f.apply(s,a);},ms);};}
+const renderFiguresD=debounce(renderFigures,160);
+const renderSearchD=debounce(function(v){renderSearch(v);},160);
+var _snkRz;if(typeof window!=='undefined')window.addEventListener('resize',function(){clearTimeout(_snkRz);_snkRz=setTimeout(function(){if(pathOf().indexOf('search')===0){var i=document.getElementById('q');if(i!==null)renderSearch(i.value);}},180);});
+
+/* ========== 历史地图·都城方位 ========== */
+
+/* ===== 简化中国轮廓（离线内置，经纬度，非精密国界）+ 黄河长江 ===== */
+
+function cnxy(lng,lat){var wu=(CNGEO.lng1-CNGEO.lng0)*CNGEO.kx,hu=(CNGEO.lat1-CNGEO.lat0);return [CNGEO.ml+((lng-CNGEO.lng0)*CNGEO.kx/wu)*CNGEO.cw, CNGEO.mt+((CNGEO.lat1-lat)/hu)*CNGEO.ch];}
+
+
+
+function mapSVG(active,accent){
+  function d(r){return r.map(function(p,i){var q=cnxy(p[0],p[1]);return (i?'L':'M')+q[0].toFixed(1)+','+q[1].toFixed(1);}).join('')+'Z';}
+  function pl(r){return r.map(function(p,i){var q=cnxy(p[0],p[1]);return (i?'L':'M')+q[0].toFixed(1)+','+q[1].toFixed(1);}).join('');}
+  var s='<svg viewBox="0 0 '+CNGEO.W+' '+CNGEO.H+'" class="cmap" role="img" aria-label="历代都城地理分布图" style="width:100%;height:auto;display:block">';
+  CN_PROV.forEach(function(pr){var dd='';for(var i=0;i<pr.length;i++)dd+=d(pr[i]);s+='<path class="cmap-land" d="'+dd+'"/>';});
+  s+='<path class="cmap-river" d="'+pl(CN_HE)+'"/><path class="cmap-river" d="'+pl(CN_JIANG)+'"/>';
+  var keys=Object.keys(CAPS),dots='',leads='',lbls='',L=[];
+  keys.forEach(function(k){var c=CAPS[k],q=cnxy(c.ll[0],c.ll[1]),on=active?active.indexOf(k)>=0:false;
+    dots+='<circle cx="'+q[0].toFixed(1)+'" cy="'+q[1].toFixed(1)+'" r="'+(on?5.5:4.5)+'" class="cmap-dot'+(on?' on':'')+'"'+(on?' style="fill:'+accent+'"':'')+'><title>'+c.name+'：'+c.note+'</title></circle>';
+    if(active? on : true) L.push({x:q[0],y:q[1],t:c.name,on:on});});
+  var CX=CNGEO.ml+CNGEO.cw*0.58,GAP=17;
+  var left=L.filter(function(o){return o.x<CX;}).sort(function(a,b){return a.y-b.y;});
+  var right=L.filter(function(o){return o.x>=CX;}).sort(function(a,b){return a.y-b.y;});
+  function stack(a){var last=-999;a.forEach(function(o){o.ly=Math.max(o.y,last+GAP);last=o.ly;});}
+  stack(left);stack(right);
+  left.forEach(function(o){var lx=o.x-10;leads+='<line class="cmap-lead" x1="'+o.x.toFixed(1)+'" y1="'+o.y.toFixed(1)+'" x2="'+lx.toFixed(1)+'" y2="'+(o.ly-4).toFixed(1)+'"/>';lbls+='<text class="cmap-lbl'+(o.on?' on':'')+'" x="'+lx.toFixed(1)+'" y="'+o.ly.toFixed(1)+'" text-anchor="end"'+(o.on?' style="fill:'+accent+'"':'')+'>'+o.t+'</text>';});
+  right.forEach(function(o){var lx=o.x+10;leads+='<line class="cmap-lead" x1="'+o.x.toFixed(1)+'" y1="'+o.y.toFixed(1)+'" x2="'+lx.toFixed(1)+'" y2="'+(o.ly-4).toFixed(1)+'"/>';lbls+='<text class="cmap-lbl'+(o.on?' on':'')+'" x="'+lx.toFixed(1)+'" y="'+o.ly.toFixed(1)+'" text-anchor="start"'+(o.on?' style="fill:'+accent+'"':'')+'>'+o.t+'</text>';});
+  var ix=606,iy=314,iw=84,ih=138;
+  var inset='<g><rect x="'+ix+'" y="'+iy+'" width="'+iw+'" height="'+ih+'" rx="6" class="cmap-insetbox"/><text x="'+(ix+iw/2)+'" y="'+(iy+17)+'" class="cmap-insetlbl">南海诸岛</text><path class="cmap-dash" d="M'+(ix+16)+','+(iy+36)+' Q'+(ix+8)+','+(iy+92)+' '+(ix+42)+','+(iy+120)+' Q'+(ix+76)+','+(iy+92)+' '+(ix+66)+','+(iy+38)+'"/><circle cx="'+(ix+40)+'" cy="'+(iy+60)+'" r="1.6" class="cmap-isle"/><circle cx="'+(ix+45)+'" cy="'+(iy+88)+'" r="1.6" class="cmap-isle"/><circle cx="'+(ix+42)+'" cy="'+(iy+110)+'" r="1.6" class="cmap-isle"/></g>';
+  return s+leads+dots+lbls+inset+'</svg>';
+}
+
+let mapDyn=null;
+async function renderMap(){ try{ var _g=await getGeo(); window.CN_PROV=_g.CN_PROV; window.CN_HE=_g.CN_HE; window.CN_JIANG=_g.CN_JIANG; window.CNGEO=_g.CNGEO; }catch(e){}
+  document.getElementById('mapChips').innerHTML='<button class="chip'+(mapDyn===null?' on':'')+'" onclick="mapDyn=null;renderMap()">全部都城</button>'+DY.map(d=>'<button class="chip'+(mapDyn===d.id?' on':'')+'" style="'+(mapDyn===d.id?'background:'+d.c+';border-color:'+d.c+';color:#fff':'')+'" onclick="mapDyn=\''+d.id+'\';renderMap()">'+d.name+'</button>').join('');
+  const active=mapDyn?(DYN_CAP[mapDyn]||[]):Object.keys(CAPS);
+  const accent=mapDyn?((DY.find(d=>d.id===mapDyn)||{}).c||'#9c2b22'):'#9c2b22';
+  document.getElementById('mapCanvas').innerHTML=mapSVG(mapDyn?(DYN_CAP[mapDyn]||[]):null,accent);
+  const cap=document.getElementById('mapCaption');
+  if(mapDyn){const d=DY.find(x=>x.id===mapDyn);const C=(typeof COMPO!=='undefined')&&COMPO[mapDyn];let h='<b style="color:'+d.c+'">'+d.full+'</b>　'+ys(d);if(C){h+='　·　各政权都城（含今所在）：<div class="capgrid">'+C.states.map(st=>'<span class="capitem"><b>'+st[0]+'</b>'+(st[5]||'—')+'</span>').join('')+'</div>';}else{h+='　·　都城：'+((typeof DCAP!=='undefined'&&DCAP[mapDyn])||d.cap);}cap.innerHTML=py(h);}
+  else cap.innerHTML='';
+}
+
+const PAGES=['home','dynasties','dynasty','topics','topic','figures','contrast','search','map','about'];
+
+/* ===== 保留：主题/导航/header 辅助函数（verbatim）===== */
+function syncThemeMeta(){var m=document.querySelector('meta[name="theme-color"]');if(m)m.setAttribute('content',document.body.classList.contains('dark')?'#1d1a16':'#9c2b22');}
+function toggleNav(force){var nav=document.getElementById('nav'),btn=document.getElementById('mBtn');if(!nav)return;var open=(typeof force==='boolean')?force:!nav.classList.contains('open');nav.classList.toggle('open',open);if(btn)btn.setAttribute('aria-expanded',open?'true':'false');}
+document.addEventListener('click',function(e){var nav=document.getElementById('nav');if(nav&&nav.classList.contains('open')&&!e.target.closest('#nav')&&!e.target.closest('#mBtn'))toggleNav(false);});
+function toggleTheme(){const dk=document.body.classList.toggle('dark');document.documentElement.classList.toggle('dark',dk);document.getElementById('themeBtn').textContent=dk?'◑':'◐';syncThemeMeta();try{localStorage.setItem('hxj-theme',dk?'dark':'light');}catch(e){}}
+try{var _dk=document.documentElement.classList.contains('dark');if(_dk){document.body.classList.add('dark');var _tb=document.getElementById('themeBtn');if(_tb)_tb.textContent='◑';}}catch(e){}
+try{if(typeof matchMedia!=='undefined'&&matchMedia('(prefers-color-scheme:dark)').addEventListener){matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(ev){if(localStorage.getItem('hxj-theme')!==null)return;var on=ev.matches;document.documentElement.classList.toggle('dark',on);document.body.classList.toggle('dark',on);var b=document.getElementById('themeBtn');if(b)b.textContent=on?'◑':'◐';syncThemeMeta();});}}catch(e){}
+syncThemeMeta();
+
+/* ========== 初始化 ========== */
+/* 量取 header 实高写入 --hdh，使 subnav 吸顶位置与 .mod 滚动偏移随字号/换行自适应，不再硬编码 */
+function syncHeaderH(){var hd=document.querySelector('.hd');if(!hd)return;var h=Math.round(hd.getBoundingClientRect().height);var sub=document.querySelector('.subnav');var sh=(sub&&sub.offsetParent!==null)?Math.round(sub.getBoundingClientRect().height):44;document.documentElement.style.setProperty('--hdh',h+'px');document.documentElement.style.setProperty('--modtop',(h+sh+8)+'px');}
+syncHeaderH();window.addEventListener('resize',function(){clearTimeout(window._hdrz);window._hdrz=setTimeout(syncHeaderH,120);});
+
+(function(){var ab=document.getElementById('page-about');if(ab)ab.innerHTML=py(ab.innerHTML);})();
+document.addEventListener('keydown',function(e){if(e.key!=='Enter'&&e.key!==' ')return;var t=e.target;if(t&&t.getAttribute&&t.getAttribute('role')==='button'&&t.tagName!=='BUTTON'&&!t.closest('#tlInner')){e.preventDefault();t.click();}});
+/* ===== History 路由（替换原 hash 路由 + 初始化由 boot 接管）===== */
+/**
+ * router-history.js — 把原 hash 路由改造为 History API 路由（债 5 的运行时部分）
+ *
+ * 替换原文件结尾这一段：
+ *   function nav(b){location.hash='#/'+b;} ... window.addEventListener('hashchange',go); if(!location.hash)...
+ *
+ * 关键改造点：
+ *  1. 地址形式：'#/dynasty/tang' → '<base>/dynasty/tang'（可被预渲染与收录）
+ *  2. nav()/链接：用 pushState 代替改 hash；拦截站内 <a> 点击
+ *  3. fillDynasty/fillTopic/renderContrast/renderMap 改 async：先 await 数据再渲染
+ *  4. 保留原 navStack「后退不变前进」逻辑，键名从 hash 换成 path
+ *  5. 处理 404.html 写入 sessionStorage 的 __spa_redirect__，首帧还原深链接
+ *
+ * 依赖 data-loader.js 暴露的 getDynasty/getCompo/getTopic/getGeo 等。
+ */
+
+// BASE 由构建注入（与 data-loader 同源）
+var BASE = (typeof __BASE__ !== 'undefined' ? __BASE__ : '');
+
+function pathOf() {
+  var p = location.pathname;
+  if (BASE && p.indexOf(BASE) === 0) p = p.slice(BASE.length);
+  return p.replace(/^\/+/, '') || 'home';      // 'dynasty/tang'
+}
+function toURL(route) {                          // 'dynasty/tang' → '<base>/dynasty/tang'
+  return (BASE || '') + '/' + String(route).replace(/^\/+/, '');
+}
+function nav(route) { pushRoute(route); }
+function pushRoute(route) {
+  if (pathOf() === route) return;
+  history.pushState({ route: route }, '', toURL(route));
+  go();
+}
+
+var curPath = '', scrollMem = new Map(), navStack = [], suppressPush = false, tlInit = false;
+var DETAIL_PAGES = ['dynasty', 'topic', 'contrast'];
+
+function contextualParent() {
+  var b = pathOf().split('/')[0];
+  return ({ dynasty: 'home', topic: 'topics', contrast: 'topics', figures: 'home', search: 'home', map: 'home', about: 'home' })[b] || 'home';
+}
+function goBack() {
+  var prev = navStack.pop();
+  if (prev) { suppressPush = true; pushRoute(prev); }
+  else { nav(contextualParent()); }
+}
+
+// 渲染分发改为 async：详情页先 await 数据
+async function go() {
+  var route = pathOf();
+  if (route === curPath) return;
+  if (curPath) {
+    scrollMem.set(curPath, window.scrollY);
+    if (scrollMem.size > 80) scrollMem.delete(scrollMem.keys().next().value);
+  }
+  if (curPath && !suppressPush) {
+    if (navStack.length && navStack[navStack.length - 1] === route) navStack.pop();
+    else { navStack.push(curPath); if (navStack.length > 60) navStack.shift(); }
+  }
+  suppressPush = false;
+
+  var parts = route.split('/'), base = parts[0], param = parts[1];
+  if (!PAGES.includes(base)) base = 'home';
+
+  var TMAP = { home: '华夏纪 · 中国历代王朝', dynasties: '朝代总览 · 华夏纪', topics: '跨朝专题 · 华夏纪', figures: '人物总库 · 华夏纪', contrast: '朝代对照 · 华夏纪', search: '搜索 · 华夏纪', map: '历史地图 · 华夏纪', about: '关于 · 华夏纪' };
+  if (TMAP[base]) document.title = TMAP[base];
+
+  try {
+    if (base === 'dynasty') { showLoading('page-dynasty'); await fillDynasty(param); }
+    else if (base === 'topic') { showLoading('page-topic'); await fillTopic(param); }
+    else if (base === 'contrast') { await renderContrast(param); }
+    else if (base === 'figures') { await renderFigures(); }
+    else if (base === 'search') { await renderSearch(document.getElementById('q').value); }
+    else if (base === 'map') { await renderMap(); }
+  } catch (e) {
+    console.error('加载失败', route, e);
+    showError(base, route);
+  }
+
+  PAGES.forEach(function (p) { document.getElementById('page-' + p).classList.toggle('show', p === base); });
+  var navmap = { dynasty: 'dynasties', topic: 'topics', contrast: 'topics' };
+  var act = navmap[base] || base;
+  document.querySelectorAll('#nav a').forEach(function (a) { a.classList.toggle('on', a.dataset.b === act); });
+  if (typeof toggleNav === 'function') toggleNav(false);
+  document.getElementById('fabBack').classList.toggle('show', DETAIL_PAGES.includes(base));
+  if (base === 'home' && !tlInit) { tlInit = true; var sc = document.getElementById('tlscroll'); if (sc) requestAnimationFrame(function () { sc.scrollLeft = Math.max(0, xpos(-221) - 24); }); }
+
+  curPath = route;
+  var y = scrollMem.get(curPath) || 0;
+  requestAnimationFrame(function () { try { window.scrollTo({ top: y, left: 0, behavior: 'instant' }); } catch (e) { window.scrollTo(0, y); } });
+}
+
+function showLoading(pageId) {
+  var host = document.querySelector('#' + pageId + ' [data-mods], #' + pageId + ' #dynModules, #' + pageId + ' #topicBody');
+  if (host) host.innerHTML = '<div class="skeleton" aria-busy="true"><div class="sk-line"></div><div class="sk-line"></div><div class="sk-line short"></div></div>';
+}
+function showError(base, route) {
+  var host = document.getElementById('page-' + base);
+  if (host) host.insertAdjacentHTML('afterbegin', '<div class="loaderr">内容加载失败。<button onclick="curPath=\'\';go()">重试</button></div>');
+}
+
+// 拦截站内链接点击 → pushState（外链、新窗口、修饰键放行）
+document.addEventListener('click', function (e) {
+  // data-route（由原内联 location.hash 转换而来）
+  var dr = e.target.closest('[data-route]');
+  if (dr) { e.preventDefault(); pushRoute(dr.getAttribute('data-route')); return; }
+  var a = e.target.closest('a');
+  if (!a) return;
+  var href = a.getAttribute('href') || '';
+  if (a.target === '_blank' || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  // 兼容历史写法 '#/dynasty/tang' 与新写法 '/dynasty/tang'
+  var route = null;
+  if (href.indexOf('#/') === 0) route = href.slice(2);
+  else if (href.indexOf(BASE + '/') === 0) route = href.slice((BASE + '/').length);
+  else if (href.indexOf('/') === 0 && href.indexOf('//') !== 0) route = href.replace(/^\/+/, '');
+  if (route == null) return;
+  e.preventDefault();
+  pushRoute(route);
+});
+
+window.addEventListener('popstate', go);
+
+// 首帧：还原 404.html 暂存的深链接；否则正常进入
+(function boot() {
+  var redir = null;
+  try { redir = sessionStorage.getItem('__spa_redirect__'); sessionStorage.removeItem('__spa_redirect__'); } catch (e) {}
+  loadCore().then(function () {
+    assignLanes(); renderTimeline(); renderGrid(); renderTopics(); renderContrastPanel(); renderSearch('');
+    syncHeaderH();
+    if (redir) {
+      var r = redir.replace(/^\/+/, '') || 'home';
+      history.replaceState({ route: r }, '', toURL(r));
+    } else if (!location.pathname || pathOf() === '') {
+      history.replaceState({ route: 'home' }, '', toURL('home'));
+    }
+    go();
+  }).catch(function (e) {
+    document.body.insertAdjacentHTML('afterbegin', '<div class="loaderr">核心数据加载失败，请刷新重试。</div>');
+    console.error(e);
+  });
+})();
+
+</script>
+</body>
+</html>

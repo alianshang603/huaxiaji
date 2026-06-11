@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta charset="UTF-8">
+<title>华夏纪</title>
+<script>
+/* GitHub Pages 对未预渲染到的深链接返回本页；这里把路径转交给 SPA 入口。
+   预渲染已为所有已知路由生成真实 index.html，本 fallback 仅兜底未知/新链接。 */
+(function(){
+  var base='__BASE__';
+  var p=location.pathname;
+  if(base&&p.indexOf(base)===0)p=p.slice(base.length);
+  // 用 sessionStorage 传递目标路由，入口 index.html 读取后 replaceState 还原
+  sessionStorage.setItem('__spa_redirect__', p + location.search + location.hash);
+  location.replace(base + '/');
+})();
+</script>
+</head><body></body></html>
