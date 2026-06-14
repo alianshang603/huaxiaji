@@ -35,11 +35,11 @@
 
 <div align="center">
 
-<img src="docs/banner/timeline-poster.png" alt="四千年王朝时间轴" width="92%" />
+<img src="docs/banner/timeline-poster.png" alt="四千年王朝时间轴" width="100%" />
 
 <br><br>
 
-<img src="docs/banner/overview-grid.png" alt="华夏纪功能概览" width="78%" />
+<img src="docs/banner/overview-grid.png" alt="华夏纪功能概览" width="100%" />
 
 </div>
 
