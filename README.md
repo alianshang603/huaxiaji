@@ -1,146 +1,172 @@
-# 华夏纪 · 部署手册（GitHub Pages 静态发布）
+<div align="center">
 
-本仓库把原单文件 `华夏纪.html` 改造为可被搜索引擎收录、首屏更轻、字体自托管的静态站点，并通过 GitHub Actions 自动发布到 GitHub Pages。
+# 华夏纪 · 中国历代王朝
 
----
+**自上古三代至清的中华通史 —— 一个零依赖、可离线、单文件的交互式历史图谱**
 
-## 一、它做了什么（对应你提的"工程化债"）
+简体中文 ｜ [English](./README.en.md)
 
-| 债 | 措施 | 产物 | 效果 |
-|---|---|---|---|
-| 1 数据懒加载 | 把 90 万字符里 80% 的大数据拆成 `public/data/*.json`，运行时按路由 `fetch` | `core.json`(30KB) + 28 朝 + 23 专题 + 索引 | 首包从 ~900KB → ~150KB |
-| 2 事件委托 | 站内链接统一在 `router-history.js` 用一个监听器分发 | — | 消除数百处内联 onclick 的注入面 |
-| 3 构建期处理 | 数据在构建时定型，运行时不再反复正则 | — | 低端机更顺 |
-| 4 字体自托管 | 扫描全站用字，子集化 Noto Serif SC | `public/fonts/*.woff2` | 弱网/离线不再退回系统宋体 |
-| 5 SSG + SEO | 无头浏览器预渲染每条路由为真 HTML + History 路由 | `dist/<route>/index.html` + `sitemap.xml` | 28 朝 + 24 专题可被收录 |
 
-> 说明：你已选择"放弃双击离线、换取首包减半 + 字体自托 + SEO"。因此产物必须经 HTTP 访问（GitHub Pages 即满足），不能再用浏览器双击打开本地 html。
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
+[![GitHub Pages](https://img.shields.io/github/deployments/alianshang603/history/github-pages?label=GitHub%20Pages&logo=github)](https://alianshang603.github.io/history/)
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-online-brightgreen?logo=githubpages)](https://alianshang603.github.io/history/)
+[![Single File](https://img.shields.io/badge/single--file-HTML-orange)](#技术说明)
+[![Dependencies](https://img.shields.io/badge/dependencies-0-success)](#技术说明)
+[![Vanilla JS](https://img.shields.io/badge/Vanilla-JS-f7df1e?logo=javascript&logoColor=black)](#技术说明)
+[![Stars](https://img.shields.io/github/stars/alianshang603/history?style=social)](https://github.com/alianshang603/history/stargazers)
 
----
+贯通四千年的主时间轴 · 28 个朝代专页 · 23 个跨朝专题 · 470 位历史人物 · 朝代对照 · 全站搜索 · 都城方位图
 
-## 二、你需要准备什么
+<br>
 
-**如果用全自动 CI（推荐）——你本地几乎不用装任何东西：**
-- 一个 GitHub 账号与仓库
-- 仅此而已。字体下载、子集化、无头浏览器、预渲染、部署全在 GitHub 服务器完成。
+<img src="docs/banner/hero.png" alt="华夏纪 · 四千年一图纵览" width="100%" />
 
-**如果想本地构建预览：**
-- Node.js 18+（[nodejs.org](https://nodejs.org)）
-- 一次 `npm install`（自动装好字体源包、子集化器、playwright）
-- 一次 `npx playwright install chromium`（拉无头浏览器，约 150MB）
-
-字体**不用手动下载**：`@fontsource/noto-serif-sc` 这个 npm 包里就带原始 woff2，子集化脚本自动读取。
+</div>
 
 ---
 
-## 三、部署形态：先定一个变量
+## 简介
 
-整个构建只有一个关键开关 `BASE_PATH`，在两个地方保持一致：
-`.github/workflows/deploy.yml` 的 `env.BASE_PATH`、以及本地构建时的环境变量。
+「华夏纪」把上起夏代（约公元前 2070 年）、下迄清亡（1912 年）的近四千年中华历史，浓缩进**一个 HTML 文件**。它不是一篇长文，而是一座可以漫游的历史图谱：你可以沿主时间轴纵览王朝兴替，点进任一朝代读它的十个维度，按专题横向贯通某一条线索（如选官、经济、文学、疆域），在人物总库里检索与比较，或在地图上看历代都城的方位流转。
 
-| 你的情况 | BASE_PATH | 示例访问地址 |
-|---|---|---|
-| 项目仓库页（默认） | `/huaxiaji` | `name.github.io/huaxiaji/` |
-| 用户主页仓库 `name.github.io` | 留空 `` | `name.github.io/` |
-| 绑定自定义域名 | 留空 `` | `your-domain.com/` |
+整个项目**没有构建步骤、没有框架、没有后端**，下载即用，断网可读。
 
-> 仓库名若不叫 `huaxiaji`，把 `/huaxiaji` 换成你的仓库名（前面带斜杠）。
-> 同时把 `deploy.yml` 里的 `SITE_URL` 和 `public/robots.txt` 里的 sitemap 地址改成你的真实地址。
+## 概览
 
----
+<div align="center">
 
-## 四、发布步骤（全自动 CI）
+<img src="docs/banner/timeline-poster.png" alt="四千年王朝时间轴" width="92%" />
 
-1. **建仓库**：在 GitHub 新建仓库（如 `huaxiaji`），把本目录所有文件推上去。
-   ```bash
-   git init && git add . && git commit -m "init"
-   git branch -M main
-   git remote add origin https://github.com/<你的用户名>/huaxiaji.git
-   git push -u origin main
-   ```
-2. **改 BASE_PATH**：按上表编辑 `.github/workflows/deploy.yml` 的 `env`（项目页默认即可，无需改）。
-3. **开 Pages**：仓库 → Settings → Pages → Build and deployment → Source 选 **GitHub Actions**。
-4. **等构建**：推送后 Actions 自动跑（约 3–6 分钟）。完成后 Pages 给出网址。
-5. **访问验证**（见第六节）。
+<br><br>
 
-之后每次 `git push` 到 `main` 都会自动重建发布。
+<img src="docs/banner/overview-grid.png" alt="华夏纪功能概览" width="78%" />
 
----
+</div>
 
-## 五、本地构建与预览（可选）
+## 特性一览
+
+- **主时间轴** — 四千年可滚动缩放的王朝时间轴，按「先秦·上古／秦汉／魏晋南北朝／隋唐五代／宋辽金元／明清」分段着色，支持聚焦某一时期、自动分轨排布并立政权。
+- **28 个朝代 / 时期专页** — 每页含十个板块：概览、帝系、政治、经济社会、军事、文化、文艺、民族对外、人物、名场面。其中 5 个分裂时期（十六国、南朝、北朝、五代、十国）另有并立政权的复合视图。
+- **23 个跨朝专题** — 横向贯通历史的主题线索，分四大类外加三个置顶通览（见下）。
+- **470 位历史人物** — 帝王、文臣、武将、思想文艺、科技西学、后妃名媛六大类，可按时代与身份筛选、按能力维度排序、两两对比；34 位帝王附能力评分雷达。
+- **朝代对照** — 7 组横纵对照：同期并立（魏蜀吴 / 宋辽夏金 / 南北朝）、前后承继（秦→汉 / 隋→唐 / 元→明）、盛世横比（文景·贞观·开元·康乾）。
+- **全站搜索** — 一处检索朝代、人物与大事（290 条编年）。
+- **历史地图** — 历代都城方位示意，含全国省界轮廓与黄河、长江走向，可切换朝代查看都城与今地对照。
+- **深浅双主题** — 自动跟随系统偏好，手动切换后记忆选择；首帧前预判主题，杜绝深色模式刷新闪白。
+- **生僻字注音** — 对帝王名讳、地名、典章中的数百个生僻字与多音字自动标注拼音。
+- **键盘可达与无障碍** — 时间轴色块、卡片、链接均可 Tab 聚焦并回车触发；大事弹窗支持 Esc 关闭、Tab 焦点圈定、← → 翻阅；尊重 `prefers-reduced-motion`。
+
+## 内容规模
+
+| 维度 | 数量 |
+|------|------|
+| 朝代 / 时期专页 | **28** |
+| 每个朝代板块 | **10** |
+| 分裂复合时期（并立政权视图） | **5** |
+| 跨朝专题 | **23** |
+| 历史人物 | **470** |
+| 帝王能力评分 | **34** |
+| 朝代对照组 | **7** |
+| 大事编年 | **290** |
+| 帝王在位记录 | **194** |
+| 地图都城点 | **15** |
+| 时间跨度 | 约公元前 2150 年 – 公元 1912 年 |
+
+> 人物按类分布：帝王 116 · 文臣 113 · 武将 102 · 思想文艺 102 · 科技西学 29 · 后妃名媛 8。
+
+## 专题清单
+
+**置顶通览**
+- 时代转移 · 大变局（周秦之变 · 唐宋变革 · 古今之变）
+- 长时段总览
+- 中外历史对照
+
+**制度与治理**
+- 制度演变 · 选官制度 · 军事制度 · 经典战役 · 治道（领导与组织）
+
+**经济与社会**
+- 经济与人口 · 都城与城市 · 基层社会与宗族 · 衣食住行（社会生活）
+
+**思想与文化**
+- 历代文学名著 · 思想流变 · 宗教信仰 · 教育与书院 · 艺术史 · 成语典故
+
+**科技 · 疆域 · 民族 · 对外**
+- 科技史 · 医学史 · 疆域变迁 · 民族融合 · 中外交流
+
+## 快速开始
+
+本项目是单个静态 HTML 文件，无需安装任何依赖。
+
+**方式一：直接打开**
+
+下载 `index.html`（或仓库中对应文件名），双击用浏览器打开即可。
+
+**方式二：本地起一个静态服务器**（推荐，避免个别浏览器对 `file://` 的限制）
 
 ```bash
-npm install                       # 装依赖（含字体源、子集化器、playwright）
-npx playwright install chromium   # 拉无头浏览器
-BASE_PATH=/huaxiaji npm run build # 抽数据→子集化→预渲染，产物在 dist/
-npm run serve                     # 本地起站，打开 http://127.0.0.1:4178/huaxiaji/
+# Python 3
+python3 -m http.server 8000
+
+# 或 Node
+npx serve .
 ```
 
-单独跑某一步：
-```bash
-npm run extract   # 只抽数据 → public/data
-npm run font      # 只子集化字体 → public/fonts
+然后浏览器访问 `http://localhost:8000`。
+
+**方式三：部署到 GitHub Pages**
+
+1. 把文件命名为 `index.html` 推到仓库；
+2. 进入 **Settings → Pages**，Source 选择部署分支（如 `main` 的根目录）；
+3. 稍候即可通过 `https://alianshang603.github.io/history/` 访问。
+
+> 也可一键部署到 Cloudflare Pages、Vercel、Netlify 等任意静态托管。
+
+## 技术说明
+
+- **纯前端单文件**：HTML + CSS + 原生 JavaScript，全部内联在一个文件里，无打包、无依赖管理、无运行时框架。
+- **唯一外部资源**：正文字体 Noto Serif SC 来自 Google Fonts，异步加载且配有系统衬线字体回退；**离线环境下仅字形略有差异，所有功能正常**。
+- **路由**：基于 URL `hash` 的前端路由，覆盖首页、朝代总览、朝代专页、专题、专题详情、人物、对照、搜索、地图、关于共 10 类页面，可前进 / 后退、可分享带锚点的链接。
+- **图形**：时间轴、雷达图、关系图、地图等约 30+ 处可视化全部以内联 SVG 手绘，矢量清晰、随主题换色。
+- **渲染**：内容由数据驱动在客户端动态生成；交互列表配有防抖，长列表平滑滚动。
+
+## 浏览器支持
+
+面向现代浏览器（Chrome / Edge / Firefox / Safari 近版本）。使用了 CSS 自定义属性、`color-mix()`、`IntersectionObserver`、`matchMedia` 等较新特性，建议使用较新版本浏览器以获得完整效果。移动端已做触控与窄屏适配。
+
+## 目录结构
+
 ```
+.
+├── index.html              # 全部内容（结构 + 样式 + 脚本，单文件）
+├── docs/
+│   └── banner/             # 概览设计图（hero / 时间轴海报 / 九宫格）
+├── README.md               # 中文说明（本文件）
+├── README.en.md            # English README
+└── LICENSE                 # 开源许可
+```
+
+## 关于内容与定位
+
+- 本项目定位为**面向大众的历史科普与通览**，在有限篇幅内追求脉络清晰、要点准确，难免挂一漏万，不能替代学术专著与原始史料。
+- 年代、人物生卒多采用学界通行说法；史有异说或属约数者，文中尽量以「约」标注。
+- 如发现史实偏差、错别字或注音错误，欢迎通过 Issue 指正。
+
+## 贡献
+
+欢迎提交 Issue 反馈问题，或提交 Pull Request 改进内容与交互。提 PR 前请确保：
+
+- 改动后用浏览器实测主要页面（时间轴、朝代专页、专题、人物、地图、搜索）渲染正常；
+- 数据类改动注明依据来源；
+- 尽量保持单文件、零依赖的项目形态。
+
+## 许可
+
+本项目采用 [MIT 许可证](./LICENSE)。
+
+> 如对历史文本与数据另有使用条款，请在此处补充说明。
 
 ---
 
-## 六、如何验证每一项
-
-**懒加载（债 1）**
-打开站点 → DevTools → Network，刷新首页只应看到 `core.json` 等小文件；点进某个朝代时才出现 `dynasty/<id>.json`。
-
-**字体自托管（债 4）**
-DevTools → Network 勾选"Disable cache"或限速 → 刷新，确认请求的是本站 `/fonts/*.woff2` 而非 fonts.googleapis.com，且中文显示为宋体而非系统默认。
-若线上出现"豆腐块"（缺字方框）：把缺的字写进 `scripts/extra-chars.txt`（每行若干字即可），重新构建。
-
-**SSG / SEO（债 5）**
-1. 直接访问深链接并**刷新**：`你的站点/dynasty/tang` 能正常显示（不白屏）= History 路由 + 404 fallback 正常。
-2. 对该页点右键 → **查看网页源代码**（不是 DevTools Elements，是原始响应），能看到唐朝正文文字 = 预渲染成功、爬虫可见。
-3. 打开 `你的站点/sitemap.xml`，应列出全部 28 朝 + 24 页面。
-4. （可选）Google Search Console → 网址检查，看抓取到的渲染内容。
-
-**返回逻辑**
-进入某朝 → 点站内链接到专题 → 浏览器后退，应回到上一页而非乱跳；右下角"← 返回"按钮逻辑同原版保留。
-
----
-
-## 七、目录结构
-
-```
-huaxiaji/
-├─ 华夏纪.src.html            # 源单文件（已含史实/bug/IA 修复；构建从它抽数据）
-├─ src/
-│  ├─ index.template.html     # 页面外壳模板（含 __BASE__ 占位、<!--DATA_LOADER-->）
-│  ├─ data-loader.js          # 运行时异步数据加载层（缓存/重试）
-│  ├─ router-history.js       # History 路由 + 异步渲染分发（替换原 hash 路由）
-│  └─ 404.template.html       # 深链接 fallback（GitHub Pages 用）
-├─ scripts/
-│  ├─ extract-data.mjs        # 抽数据 → public/data/*.json（含 figures/search 索引）
-│  ├─ subset-font.mjs         # 字体子集化
-│  ├─ prerender.mjs           # 无头浏览器预渲染 + sitemap
-│  ├─ serve.mjs               # 本地静态服务（SPA fallback）
-│  ├─ build.mjs               # 一键编排
-│  └─ extra-chars.txt         # （可选）字体补字白名单
-├─ public/
-│  ├─ data/…                  # 构建生成的 JSON（也可提交，CI 会重生成）
-│  ├─ fonts/…                 # 子集化字体
-│  └─ robots.txt
-├─ .github/workflows/deploy.yml
-└─ package.json
-```
-
----
-
-## 八、注意事项与已知边界
-
-- **必须 HTTP 访问**：拆包后不能再双击本地 html 打开（这是你选定的取舍）。需离线分发时另说。
-- **base path 必须一致**：`deploy.yml`、`SITE_URL`、`robots.txt` 三处对齐，否则深链接或资源 404。
-- **字体许可**：Noto Serif SC 为 SIL OFL 开源字体，可自由自托管分发。
-- **预渲染时长**：52 条路由约 1–3 分钟，CI 有缓存后更快。
-- **数据更新流程**：内容改在 `华夏纪.src.html`（仍是单文件，便于编辑），push 后 CI 自动重抽、重渲染、重发布。
-
----
-
-## 九、史实与功能修复（本次随附）
-
-源文件 `华夏纪.src.html` 已包含此前的全部修复：13 项史实硬伤（西夏献宗、北宋钦宗纪年、东汉/辽断代衔接、东周/西汉国祚、五代君数、台城陷落、错字、李时珍年数、武周段名、通说存疑标注、口径统一）、8 项 bug（IntersectionObserver 守卫、触屏 tooltip、平滑滚动、深色 FOUC、事件筛选导航、subnav 自适应、魔法数字、弹窗锁滚/aria）、以及交互改进（文学专题可点、人物卡惰性渲染、低缩放标签精简、打印样式）。
+<div align="center">
+<sub>一部中华文学史，也是一部中国人的心灵史；一部华夏纪，愿是你纵览四千年的一扇窗。</sub>
+</div>
