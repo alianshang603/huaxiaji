@@ -35,11 +35,11 @@ The whole project has **no build step, no framework, and no backend**. Download 
 
 <div align="center">
 
-<img src="docs/banner/timeline-poster.png" alt="4,000-year dynasty timeline" width="92%" />
+<img src="docs/banner/timeline-poster.png" alt="4,000-year dynasty timeline" width="100%" />
 
 <br><br>
 
-<img src="docs/banner/overview-grid.png" alt="HuaxiaJi feature overview" width="78%" />
+<img src="docs/banner/overview-grid.png" alt="HuaxiaJi feature overview" width="100%" />
 
 </div>
 
